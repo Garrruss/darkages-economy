@@ -8,6 +8,7 @@ var SITE_PAGES = [
   {href: "roles.html",    title: "Заработок по ролям"},
   {href: "prices.html",   title: "Цены"},
   {href: "model.html",    title: "Модель казны"},
+  {href: "analysis.html", title: "Разбор системы"},
   {href: "issues.html",   title: "Неясное и обсуждение"}
 ];
 (function () {

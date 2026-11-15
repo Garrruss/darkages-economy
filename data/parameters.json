@@ -1,6 +1,6 @@
 {
  "version": "2026-11-15",
- "count": 157,
+ "count": 433,
  "parameters": [
   {
    "id": "coin_gold",
@@ -51,60 +51,356 @@
    "code": "code/controllers/subsystem/rogue/treasury.dm:358"
   },
   {
+   "id": "pouch_poor_min",
+   "name": "Бедный кошель (от)",
+   "value": "10",
+   "unit": "мон.",
+   "meaning": "среднее 18,6",
+   "code": "code/modules/clothing/rogueclothes/storage/pouch.dm:181-198"
+  },
+  {
+   "id": "pouch_poor_max",
+   "name": "Бедный кошель (до)",
+   "value": "38",
+   "unit": "мон.",
+   "meaning": "среднее 18,6",
+   "code": "code/modules/clothing/rogueclothes/storage/pouch.dm:181-198"
+  },
+  {
+   "id": "pouch_mid_min",
+   "name": "Средний кошель (от)",
+   "value": "24",
+   "unit": "мон.",
+   "meaning": "среднее 69",
+   "code": "code/modules/clothing/rogueclothes/storage/pouch.dm:165-179"
+  },
+  {
+   "id": "pouch_mid_max",
+   "name": "Средний кошель (до)",
+   "value": "114",
+   "unit": "мон.",
+   "meaning": "среднее 69",
+   "code": "code/modules/clothing/rogueclothes/storage/pouch.dm:165-179"
+  },
+  {
+   "id": "pouch_rich_min",
+   "name": "Богатый кошель (от)",
+   "value": "40",
+   "unit": "мон.",
+   "meaning": "среднее 143,8",
+   "code": "code/modules/clothing/rogueclothes/storage/pouch.dm:200-219"
+  },
+  {
+   "id": "pouch_rich_max",
+   "name": "Богатый кошель (до)",
+   "value": "285",
+   "unit": "мон.",
+   "meaning": "среднее 143,8",
+   "code": "code/modules/clothing/rogueclothes/storage/pouch.dm:200-219"
+  },
+  {
+   "id": "pouch_veryrich_min",
+   "name": "Очень богатый кошель (от)",
+   "value": "80",
+   "unit": "мон.",
+   "meaning": "среднее 287,5",
+   "code": "code/modules/clothing/rogueclothes/storage/pouch.dm:221-240"
+  },
+  {
+   "id": "pouch_veryrich_max",
+   "name": "Очень богатый кошель (до)",
+   "value": "570",
+   "unit": "мон.",
+   "meaning": "среднее 287,5",
+   "code": "code/modules/clothing/rogueclothes/storage/pouch.dm:221-240"
+  },
+  {
+   "id": "readyup_pouch",
+   "name": "Тайник при старте",
+   "value": "20",
+   "unit": "мон.",
+   "meaning": "Четыре денария у каждого, кто вошёл к началу раунда",
+   "code": "code/modules/jobs/job_types/_job.dm:392-400"
+  },
+  {
+   "id": "virtue_pouch_noble_min",
+   "name": "Кошель добродетели «Знать» (от)",
+   "value": "80",
+   "unit": "мон.",
+   "meaning": "Лежит в тайнике персонажа, не облагается",
+   "code": "code/game/objects/items/rogueitems/coins.dm:300-302"
+  },
+  {
+   "id": "virtue_pouch_noble_max",
+   "name": "Кошель добродетели «Знать» (до)",
+   "value": "120",
+   "unit": "мон.",
+   "meaning": "Лежит в тайнике персонажа, не облагается",
+   "code": "code/game/objects/items/rogueitems/coins.dm:300-302"
+  },
+  {
+   "id": "resident_deposit",
+   "name": "Вклад при признаке резидента",
+   "value": "20",
+   "unit": "мон.",
+   "meaning": "На счёт",
+   "code": "code/modules/virtues/_virtue.dm:191-198"
+  },
+  {
+   "id": "shrewd_deposit_min",
+   "name": "Вклад «Расчётливый образ жизни» (от)",
+   "value": "80",
+   "unit": "мон.",
+   "meaning": "На счёт",
+   "code": "code/modules/virtues/utility.dm:80-92"
+  },
+  {
+   "id": "shrewd_deposit_max",
+   "name": "Вклад «Расчётливый образ жизни» (до)",
+   "value": "120",
+   "unit": "мон.",
+   "meaning": "На счёт",
+   "code": "code/modules/virtues/utility.dm:80-92"
+  },
+  {
+   "id": "savings_rich_min",
+   "name": "Сбережения: богатые (от)",
+   "value": "120",
+   "unit": "мон.",
+   "meaning": "Полоса сословия при входе; у странников и наёмников счёта нет",
+   "code": "code/__DEFINES/jobs.dm:302"
+  },
+  {
+   "id": "savings_rich_max",
+   "name": "Сбережения: богатые (до)",
+   "value": "140",
+   "unit": "мон.",
+   "meaning": "Полоса сословия при входе; у странников и наёмников счёта нет",
+   "code": "code/__DEFINES/jobs.dm:302"
+  },
+  {
+   "id": "savings_upper_min",
+   "name": "Сбережения: высшие (от)",
+   "value": "100",
+   "unit": "мон.",
+   "meaning": "Полоса сословия при входе; у странников и наёмников счёта нет",
+   "code": "code/__DEFINES/jobs.dm:303"
+  },
+  {
+   "id": "savings_upper_max",
+   "name": "Сбережения: высшие (до)",
+   "value": "120",
+   "unit": "мон.",
+   "meaning": "Полоса сословия при входе; у странников и наёмников счёта нет",
+   "code": "code/__DEFINES/jobs.dm:303"
+  },
+  {
+   "id": "savings_upper_middle_min",
+   "name": "Сбережения: средние (от)",
+   "value": "80",
+   "unit": "мон.",
+   "meaning": "Полоса сословия при входе; у странников и наёмников счёта нет",
+   "code": "code/__DEFINES/jobs.dm:304"
+  },
+  {
+   "id": "savings_upper_middle_max",
+   "name": "Сбережения: средние (до)",
+   "value": "100",
+   "unit": "мон.",
+   "meaning": "Полоса сословия при входе; у странников и наёмников счёта нет",
+   "code": "code/__DEFINES/jobs.dm:304"
+  },
+  {
+   "id": "savings_lower_middle_min",
+   "name": "Сбережения: младшие средние (от)",
+   "value": "40",
+   "unit": "мон.",
+   "meaning": "Полоса сословия при входе; у странников и наёмников счёта нет",
+   "code": "code/__DEFINES/jobs.dm:305"
+  },
+  {
+   "id": "savings_lower_middle_max",
+   "name": "Сбережения: младшие средние (до)",
+   "value": "80",
+   "unit": "мон.",
+   "meaning": "Полоса сословия при входе; у странников и наёмников счёта нет",
+   "code": "code/__DEFINES/jobs.dm:305"
+  },
+  {
+   "id": "savings_working_min",
+   "name": "Сбережения: работники (от)",
+   "value": "40",
+   "unit": "мон.",
+   "meaning": "Полоса сословия при входе; у странников и наёмников счёта нет",
+   "code": "code/__DEFINES/jobs.dm:306"
+  },
+  {
+   "id": "savings_working_max",
+   "name": "Сбережения: работники (до)",
+   "value": "60",
+   "unit": "мон.",
+   "meaning": "Полоса сословия при входе; у странников и наёмников счёта нет",
+   "code": "code/__DEFINES/jobs.dm:306"
+  },
+  {
+   "id": "savings_lower_min",
+   "name": "Сбережения: низшие (от)",
+   "value": "20",
+   "unit": "мон.",
+   "meaning": "Полоса сословия при входе; у странников и наёмников счёта нет",
+   "code": "code/__DEFINES/jobs.dm:307"
+  },
+  {
+   "id": "savings_lower_max",
+   "name": "Сбережения: низшие (до)",
+   "value": "40",
+   "unit": "мон.",
+   "meaning": "Полоса сословия при входе; у странников и наёмников счёта нет",
+   "code": "code/__DEFINES/jobs.dm:307"
+  },
+  {
+   "id": "savings_destitute_min",
+   "name": "Сбережения: нищие (от)",
+   "value": "0",
+   "unit": "мон.",
+   "meaning": "Полоса сословия при входе; у странников и наёмников счёта нет",
+   "code": "code/__DEFINES/jobs.dm:308"
+  },
+  {
+   "id": "savings_destitute_max",
+   "name": "Сбережения: нищие (до)",
+   "value": "6",
+   "unit": "мон.",
+   "meaning": "Полоса сословия при входе; у странников и наёмников счёта нет",
+   "code": "code/__DEFINES/jobs.dm:308"
+  },
+  {
+   "id": "people_start_per_player",
+   "name": "Начальные счета и кошели (оценка)",
+   "value": "120",
+   "unit": "мон. на игрока",
+   "meaning": "Оценка: около 3000 при 25 игроках (счета и кошели вместе)",
+   "code": "code/__DEFINES/jobs.dm:302-309"
+  },
+  {
+   "id": "dungeon_money_avg",
+   "name": "Россыпь подземелий, среднее",
+   "value": "30",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/loot_pools.dm:84"
+  },
+  {
+   "id": "dungeon_money_spawners",
+   "name": "Россыпей в подземельях на карте",
+   "value": "59",
+   "unit": "шт.",
+   "meaning": "",
+   "code": "_maps/map_files/dun_world/dun_world.dmm"
+  },
+  {
+   "id": "atm_windows",
+   "name": "Окошек менялы на карте",
+   "value": "23",
+   "unit": "шт.",
+   "meaning": "",
+   "code": "_maps/map_files/dun_world/dun_world.dmm"
+  },
+  {
    "id": "treasury_seed_base",
    "name": "Основа начальной казны",
    "value": "1000",
    "unit": "мон.",
-   "meaning": "Постоянная часть начальной казны",
+   "meaning": "Постоянная часть",
    "code": "code/__DEFINES/banking.dm:24"
   },
   {
-   "id": "treasury_seed_rand",
-   "name": "Случайная часть начальной казны",
-   "value": "500-1500",
+   "id": "treasury_seed_rand_min",
+   "name": "Случайная часть начальной казны (от)",
+   "value": "500",
    "unit": "мон.",
-   "meaning": "rand(500, 1500) при старте",
-   "code": "code/controllers/subsystem/rogue/treasury.dm:139-145"
+   "meaning": "Равномерное целое число",
+   "code": "code/controllers/subsystem/rogue/treasury.dm:140"
+  },
+  {
+   "id": "treasury_seed_rand_max",
+   "name": "Случайная часть начальной казны (до)",
+   "value": "1500",
+   "unit": "мон.",
+   "meaning": "Равномерное целое число",
+   "code": "code/controllers/subsystem/rogue/treasury.dm:140"
   },
   {
    "id": "treasury_seed_per_player",
-   "name": "Начальная казна на игрока",
+   "name": "Начальная казна, надбавка на игрока",
    "value": "35",
-   "unit": "мон. на игрока",
-   "meaning": "Добавка за каждого игрока при старте",
+   "unit": "мон.",
+   "meaning": "Берётся при загрузке мира, когда игроков ещё нет, поэтому при старте равна нулю",
    "code": "code/__DEFINES/banking.dm:25"
   },
   {
-   "id": "rural_aid_max",
+   "id": "treasury_seed_min",
+   "name": "Начальная казна, наименьшая",
+   "value": "1500",
+   "unit": "мон.",
+   "meaning": "1000 + 500; надбавка на игрока при старте нулевая",
+   "code": "code/controllers/subsystem/rogue/treasury.dm:139-145"
+  },
+  {
+   "id": "treasury_seed_max",
+   "name": "Начальная казна, наибольшая",
+   "value": "2500",
+   "unit": "мон.",
+   "meaning": "1000 + 1500",
+   "code": "code/controllers/subsystem/rogue/treasury.dm:139-145"
+  },
+  {
+   "id": "treasury_seed_mean",
+   "name": "Начальная казна, среднее (оценка)",
+   "value": "2000",
+   "unit": "мон.",
+   "meaning": "Значение по умолчанию в модели казны",
+   "code": "code/controllers/subsystem/rogue/treasury.dm:139-145"
+  },
+  {
+   "id": "rural_subsidy_base",
    "name": "Сельская подмога, максимум",
    "value": "200",
    "unit": "мон. в день",
-   "meaning": "Приток каждый рассвет при слабом производстве",
+   "meaning": "При нуле производителей; формула 100 + округл(100 × max(0, 1 − P/6))",
    "code": "code/controllers/subsystem/rogue/treasury.dm:205-229"
   },
   {
-   "id": "rural_aid_min",
+   "id": "rural_subsidy_floor",
    "name": "Сельская подмога, минимум",
    "value": "100",
    "unit": "мон. в день",
-   "meaning": "Когда 6 работников-производителей",
-   "code": "code/__DEFINES/economy/treasury.dm:5-7"
+   "meaning": "При шести и более производителях",
+   "code": "code/__DEFINES/economy/treasury.dm:6"
   },
   {
-   "id": "rural_aid_workers",
-   "name": "Работников для минимальной подмоги",
+   "id": "rural_subsidy_ref",
+   "name": "Сельская подмога, опорное число производителей",
    "value": "6",
    "unit": "чел.",
-   "meaning": "Порог производителей",
-   "code": "code/__DEFINES/economy/treasury.dm:5-7"
+   "meaning": "Линейное убывание до минимума",
+   "code": "code/__DEFINES/economy/treasury.dm:7"
+  },
+  {
+   "id": "treasury_tick",
+   "name": "Период автовывоза излишков",
+   "value": "6",
+   "unit": "мин.",
+   "meaning": "Период цикла казны",
+   "code": "code/__DEFINES/economy/treasury.dm:8"
   },
   {
    "id": "payroll_total",
    "name": "Жалованье при полном составе",
    "value": "460",
    "unit": "мон. в день",
-   "meaning": "Сумма по местам города",
-   "code": "modular_zz_darkages/code/modules/world/world_jobs.dm:3-14"
+   "meaning": "14 мест на Dun World",
+   "code": "code/modules/roguetown/roguemachine/steward/steward.dm:77-102; modular_zz_darkages/code/modules/world/world_jobs.dm:3-14"
   },
   {
    "id": "payroll_marshal",
@@ -171,171 +467,515 @@
    "code": "code/modules/politics/decrees/covenant_of_noc_and_pestra.dm:17-22"
   },
   {
-   "id": "rate_quest",
-   "name": "Сбор с договоров",
-   "value": "20",
-   "unit": "%",
-   "meaning": "Доля награды в казну",
-   "code": "code/controllers/subsystem/rogue/treasury.dm:25-33"
+   "id": "wage_set_min",
+   "name": "Оклад, назначаемый казначеем (от)",
+   "value": "0",
+   "unit": "мон. в день",
+   "meaning": "Один оклад по должности",
+   "code": "code/modules/roguetown/roguemachine/steward/steward.dm:336-364"
   },
   {
-   "id": "rate_heads",
-   "name": "Сбор с голов",
+   "id": "wage_set_max",
+   "name": "Оклад, назначаемый казначеем (до)",
+   "value": "999",
+   "unit": "мон. в день",
+   "meaning": "Один оклад по должности",
+   "code": "code/modules/roguetown/roguemachine/steward/steward.dm:336-364"
+  },
+  {
+   "id": "stock_purchase_floor",
+   "name": "Нижний предел казны для закупок на складе",
+   "value": "1000",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/banking.dm:24"
+  },
+  {
+   "id": "royal_custom_base",
+   "name": "Порог оборота для королевской пошлины, основа",
+   "value": "2500",
+   "unit": "мон.",
+   "meaning": "Оборот склада для открытия надстройки",
+   "code": "code/__DEFINES/banking.dm:27"
+  },
+  {
+   "id": "royal_custom_per_player",
+   "name": "Порог королевской пошлины, на игрока",
+   "value": "50",
+   "unit": "мон.",
+   "meaning": "Берётся при старте (по активным игрокам)",
+   "code": "code/__DEFINES/banking.dm:28"
+  },
+  {
+   "id": "royal_custom_margin",
+   "name": "Наценка прямого ввоза под заказ",
+   "value": "50",
+   "unit": "%",
+   "meaning": "По умолчанию; настройка 0-500 после открытия",
+   "code": "code/__DEFINES/banking.dm:29"
+  },
+  {
+   "id": "rate_contract",
+   "name": "Ставка сбора с договоров",
+   "value": "20",
+   "unit": "%",
+   "meaning": "По умолчанию, доля награды",
+   "code": "code/controllers/subsystem/rogue/treasury.dm:26"
+  },
+  {
+   "id": "rate_headeater",
+   "name": "Ставка сбора с голов",
    "value": "15",
    "unit": "%",
-   "meaning": "Приёмка голов",
-   "code": "code/controllers/subsystem/rogue/treasury.dm:25-33"
+   "meaning": "По умолчанию",
+   "code": "code/controllers/subsystem/rogue/treasury.dm:27"
   },
   {
    "id": "rate_import",
-   "name": "Ввозная пошлина",
+   "name": "Ставка ввозной пошлины",
    "value": "15",
    "unit": "%",
-   "meaning": "Покупки у купца и в лавках",
-   "code": "code/controllers/subsystem/rogue/treasury.dm:25-33"
+   "meaning": "По умолчанию, от базовой цены набора",
+   "code": "code/controllers/subsystem/rogue/treasury.dm:28"
   },
   {
    "id": "rate_export",
-   "name": "Вывозная пошлина",
+   "name": "Ставка вывозной пошлины",
    "value": "15",
    "unit": "%",
-   "meaning": "Мытный двор и ящик на пристани",
-   "code": "code/controllers/subsystem/rogue/treasury.dm:25-33"
+   "meaning": "По умолчанию, от выручки и от сбора купца",
+   "code": "code/controllers/subsystem/rogue/treasury.dm:29"
   },
   {
-   "id": "rate_loot",
-   "name": "Возвращённая добыча",
+   "id": "rate_spoils",
+   "name": "Ставка на возвращённую добычу",
    "value": "50",
    "unit": "%",
-   "meaning": "Захоронки разбойников",
-   "code": "code/controllers/subsystem/rogue/treasury.dm:25-33"
+   "meaning": "По умолчанию",
+   "code": "code/controllers/subsystem/rogue/treasury.dm:30"
   },
   {
-   "id": "rate_manor",
+   "id": "rate_estate",
    "name": "Поземельный сбор",
    "value": "15",
    "unit": "%",
-   "meaning": "Доход поместий знати",
-   "code": "code/controllers/subsystem/rogue/treasury.dm:25-33"
+   "meaning": "По умолчанию, доля выручки поместий",
+   "code": "code/controllers/subsystem/rogue/treasury.dm:32"
   },
   {
-   "id": "rate_cap",
-   "name": "Потолок большинства ставок",
+   "id": "rate_min",
+   "name": "Ставка сбора, наименьшая",
+   "value": "0",
+   "unit": "%",
+   "meaning": "Задаёт казначей или ишпан, раз в день",
+   "code": "code/controllers/subsystem/rogue/treasury.dm:675"
+  },
+  {
+   "id": "rate_max",
+   "name": "Ставка сбора, наибольшая",
+   "value": "100",
+   "unit": "%",
+   "meaning": "Задаёт казначей или ишпан, раз в день",
+   "code": "code/controllers/subsystem/rogue/treasury.dm:675"
+  },
+  {
+   "id": "rate_cap_generic",
+   "name": "Предельная ставка плательщика",
    "value": "75",
    "unit": "%",
-   "meaning": "Верхняя граница ставки",
-   "code": "code/__DEFINES/banking.dm:22"
+   "meaning": "Наибольшая доля базы, которую берут с человека по прямому сбору, и предел штрафа от счёта. Ввозная и вывозная пошлины предела не имеют",
+   "code": "code/__DEFINES/banking.dm:23"
   },
   {
-   "id": "poll_tax_max",
-   "name": "Подушная подать, максимум с головы",
+   "id": "rate_cap_bull",
+   "name": "Предельная ставка под Золотой буллой",
+   "value": "25",
+   "unit": "%",
+   "meaning": "Для защищённых буллой; также предел штрафа от счёта",
+   "code": "code/__DEFINES/decrees.dm:16"
+  },
+  {
+   "id": "concordat_tithe",
+   "name": "Десятина по Конкордату",
+   "value": "5",
+   "unit": "%",
+   "meaning": "От базы обложенного платежа, не от налога",
+   "code": "code/__DEFINES/banking.dm:117"
+  },
+  {
+   "id": "concordat_floor",
+   "name": "Нижний предел ставки при Конкордате",
+   "value": "5",
+   "unit": "%",
+   "meaning": "Совпадает с десятиной",
+   "code": "code/controllers/subsystem/rogue/treasury.dm:677"
+  },
+  {
+   "id": "fine_cap_flat",
+   "name": "Предел штрафа и подушной подати",
    "value": "100",
    "unit": "мон.",
-   "meaning": "Верхняя граница сбора",
-   "code": "code/__DEFINES/banking.dm:140-146"
+   "meaning": "На человека за раз",
+   "code": "code/__DEFINES/banking.dm:137"
   },
   {
-   "id": "poll_tax_count",
-   "name": "Число сборов подушной подати",
+   "id": "fine_cap_charter",
+   "name": "Предел штрафа под буллой и подушной подати под грамотой",
+   "value": "50",
+   "unit": "мон.",
+   "meaning": "Булла, Завет, Статут наёмников",
+   "code": "code/__DEFINES/banking.dm:138"
+  },
+  {
+   "id": "fine_per_day",
+   "name": "Штрафов на человека в сутки",
+   "value": "1",
+   "unit": "шт.",
+   "meaning": "Суточное право",
+   "code": "code/controllers/subsystem/rogue/treasury.dm:311-321"
+  },
+  {
+   "id": "poll_first_day",
+   "name": "Первый день подушной подати",
    "value": "2",
-   "unit": "раза за раунд",
-   "meaning": "Не раньше дня 2",
+   "unit": "день",
+   "meaning": "Раньше сбор не вводят",
+   "code": "code/__DEFINES/banking.dm:140"
+  },
+  {
+   "id": "poll_max_per_round",
+   "name": "Подушных сборов за раунд",
+   "value": "2",
+   "unit": "шт.",
+   "meaning": "Казначей не более одного",
    "code": "code/__DEFINES/banking.dm:141"
   },
   {
-   "id": "fine_max",
-   "name": "Штраф, максимум",
-   "value": "100",
-   "unit": "мон.",
-   "meaning": "Также не больше 75% счёта",
-   "code": "code/controllers/subsystem/rogue/treasury.dm:388-420"
-  },
-  {
-   "id": "fine_share",
-   "name": "Штраф, доля счёта",
-   "value": "75",
-   "unit": "%",
-   "meaning": "Верхняя граница от счёта",
-   "code": "code/controllers/subsystem/rogue/treasury.dm:388-420"
-  },
-  {
-   "id": "fine_bull_max",
-   "name": "Штраф при Золотой булле, максимум",
+   "id": "poll_reason_min",
+   "name": "Причина подушной подати (от)",
    "value": "50",
-   "unit": "мон.",
-   "meaning": "Также не больше 25% счёта",
-   "code": "code/modules/politics/decrees/golden_bull_of_kingsfield.dm"
+   "unit": "знаков",
+   "meaning": "Объявляется",
+   "code": "code/__DEFINES/banking.dm:143-144"
   },
   {
-   "id": "fine_bull_share",
-   "name": "Штраф при Золотой булле, доля счёта",
-   "value": "25",
-   "unit": "%",
+   "id": "poll_reason_max",
+   "name": "Причина подушной подати (до)",
+   "value": "300",
+   "unit": "знаков",
+   "meaning": "Объявляется",
+   "code": "code/__DEFINES/banking.dm:143-144"
+  },
+  {
+   "id": "poll_protected",
+   "name": "Защищённый остаток при подушной подати",
+   "value": "30",
+   "unit": "мон.",
+   "meaning": "Ниже недоимка вместо взятия",
+   "code": "code/__DEFINES/banking.dm:145"
+  },
+  {
+   "id": "poll_latejoin_grace",
+   "name": "Отсрочка позднего входа",
+   "value": "30",
+   "unit": "мин.",
+   "meaning": "По новым сборам",
+   "code": "code/__DEFINES/banking.dm:146"
+  },
+  {
+   "id": "decree_cooldown",
+   "name": "Перезарядка грамоты",
+   "value": "30",
+   "unit": "мин.",
+   "meaning": "На каждую",
+   "code": "code/__DEFINES/decrees.dm:10"
+  },
+  {
+   "id": "decree_suspend_per_day",
+   "name": "Приостановлений грамот в день",
+   "value": "1",
+   "unit": "шт.",
+   "meaning": "На державу",
+   "code": "code/modules/politics/decree_api.dm:10-13"
+  },
+  {
+   "id": "decree_restore_per_day",
+   "name": "Возвращений грамот в день",
+   "value": "1",
+   "unit": "шт.",
+   "meaning": "На державу",
+   "code": "code/modules/politics/decree_api.dm:10-13"
+  },
+  {
+   "id": "patron_cap_merchant",
+   "name": "Лимит покровительства, купеческое",
+   "value": "5",
+   "unit": "чел.",
    "meaning": "",
-   "code": "code/modules/politics/decrees/golden_bull_of_kingsfield.dm"
+   "code": "code/__DEFINES/banking.dm:131"
   },
   {
-   "id": "loan_min",
-   "name": "Личный заём, минимум",
+   "id": "patron_cap_bath",
+   "name": "Лимит покровительства, банное",
+   "value": "5",
+   "unit": "чел.",
+   "meaning": "",
+   "code": "code/__DEFINES/banking.dm:132"
+  },
+  {
+   "id": "patron_cap_church",
+   "name": "Лимит покровительства, церковное",
+   "value": "20",
+   "unit": "чел.",
+   "meaning": "",
+   "code": "code/__DEFINES/banking.dm:133"
+  },
+  {
+   "id": "patron_writ_cooldown",
+   "name": "Перезарядка грамоты о покровительстве",
+   "value": "30",
+   "unit": "с",
+   "meaning": "На хранилище",
+   "code": "code/__DEFINES/banking.dm:135"
+  },
+  {
+   "id": "residency_cooldown",
+   "name": "Перезарядка выписки грамоты гостя короны",
+   "value": "1",
+   "unit": "мин.",
+   "meaning": "Без ограничения числа",
+   "code": "code/__DEFINES/banking.dm:149"
+  },
+  {
+   "id": "estate_ispan",
+   "name": "Доход знати: ишпан",
+   "value": "275",
+   "unit": "мон. в день",
+   "meaning": "Печатается каждый рассвет",
+   "code": "code/modules/jobs/job_types/roguetown/nobility/lord.dm:255"
+  },
+  {
+   "id": "estate_consort",
+   "name": "Доход знати: супруг ишпана",
+   "value": "22",
+   "unit": "мон. в день",
+   "meaning": "Печатается каждый рассвет",
+   "code": "code/modules/jobs/job_types/roguetown/nobility/consort.dm:19"
+  },
+  {
+   "id": "estate_merchant",
+   "name": "Доход знати: купец",
+   "value": "100",
+   "unit": "мон. в день",
+   "meaning": "Печатается каждый рассвет",
+   "code": "code/modules/jobs/job_types/roguetown/burghers/merchant.dm:16"
+  },
+  {
+   "id": "estate_steward",
+   "name": "Запись дохода: казначей",
+   "value": "16",
+   "unit": "мон. в день",
+   "meaning": "Платёж отклоняется (признак «знатный» вне отдела знати)",
+   "code": "code/modules/jobs/job_types/roguetown/courtier/steward.dm:15"
+  },
+  {
+   "id": "estate_marshal",
+   "name": "Запись дохода: капитан стражи",
+   "value": "20",
+   "unit": "мон. в день",
+   "meaning": "Платёж отклоняется",
+   "code": "code/modules/jobs/job_types/roguetown/retinue/marshal.dm:21"
+  },
+  {
+   "id": "estate_knight",
+   "name": "Запись дохода: рыцарь",
+   "value": "15",
+   "unit": "мон. в день",
+   "meaning": "Платёж отклоняется",
+   "code": "code/modules/jobs/job_types/roguetown/retinue/knight.dm:18"
+  },
+  {
+   "id": "estate_total_printed",
+   "name": "Доход знати, печатается всего",
+   "value": "397",
+   "unit": "мон. в день",
+   "meaning": "275 + 22 + 100; значение по умолчанию в модели казны",
+   "code": "code/controllers/subsystem/rogue/treasury.dm:457-462"
+  },
+  {
+   "id": "estate_starter_bonus",
+   "name": "Добавка к первому платежу дохода знати",
+   "value": "30",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/banking.dm:31"
+  },
+  {
+   "id": "lord_deposit",
+   "name": "Твёрдый вклад ишпана",
+   "value": "250",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/modules/jobs/job_types/roguetown/nobility/lord.dm:33"
+  },
+  {
+   "id": "manor_min_workers_large",
+   "name": "Минимум работников большого поместья",
+   "value": "15",
+   "unit": "чел.",
+   "meaning": "",
+   "code": "modular_twilight_axis/manors/code/manor.dm:294-340"
+  },
+  {
+   "id": "manor_min_workers_medium",
+   "name": "Минимум работников среднего поместья",
+   "value": "10",
+   "unit": "чел.",
+   "meaning": "",
+   "code": "modular_twilight_axis/manors/code/manor.dm:294-340"
+  },
+  {
+   "id": "manor_min_workers_small",
+   "name": "Минимум работников малого поместья",
+   "value": "5",
+   "unit": "чел.",
+   "meaning": "",
+   "code": "modular_twilight_axis/manors/code/manor.dm:294-340"
+  },
+  {
+   "id": "manor_unit_divisor",
+   "name": "Делитель цены единицы товара поместья",
+   "value": "3",
+   "unit": "раз",
+   "meaning": "Цена делится на это число при продаже",
+   "code": "modular_twilight_axis/manors/code/manor.dm:384"
+  },
+  {
+   "id": "manor_trade_bonus",
+   "name": "Бонус «Торговых рядов»",
+   "value": "2",
+   "unit": "мон. на работника",
+   "meaning": "",
+   "code": "modular_twilight_axis/manors/code/manor.dm:399"
+  },
+  {
+   "id": "loan_personal_min",
+   "name": "Личный заём (от)",
    "value": "50",
    "unit": "мон.",
-   "meaning": "Заём из кассы",
+   "meaning": "Выдача из кассы",
    "code": "code/modules/roguetown/roguemachine/vaultbank.dm:535-560"
   },
   {
-   "id": "loan_max",
-   "name": "Личный заём, максимум",
+   "id": "loan_personal_max",
+   "name": "Личный заём (до)",
    "value": "500",
    "unit": "мон.",
-   "meaning": "",
+   "meaning": "Выдача из кассы",
    "code": "code/modules/roguetown/roguemachine/vaultbank.dm:535-560"
   },
   {
-   "id": "loan_days",
-   "name": "Срок личного займа",
-   "value": "1-3",
+   "id": "loan_term_min",
+   "name": "Срок займа (от)",
+   "value": "1",
    "unit": "дней",
-   "meaning": "Не позже дня 5",
+   "meaning": "Для личных и заёмных грамот",
    "code": "code/modules/banking/loan.dm:46-55"
   },
   {
-   "id": "loan_rates",
-   "name": "Ставки личного займа",
-   "value": "10, 15, 20, 25, 50",
+   "id": "loan_term_max",
+   "name": "Срок займа (до)",
+   "value": "3",
+   "unit": "дней",
+   "meaning": "Для личных и заёмных грамот",
+   "code": "code/modules/banking/loan.dm:46-55"
+  },
+  {
+   "id": "loan_rate_1",
+   "name": "Ставка займа, вариант 1",
+   "value": "10",
    "unit": "% в день",
-   "meaning": "На выбор",
-   "code": "code/modules/banking/loan.dm:46-55"
+   "meaning": "Простой процент, на выбор",
+   "code": "code/modules/roguetown/roguemachine/vaultbank.dm:412-419"
   },
   {
-   "id": "company_loan_range",
-   "name": "Заём казны у товарищества",
-   "value": "500-1500",
-   "unit": "мон.",
-   "meaning": "Один за раз, до дня 5",
-   "code": "code/__DEFINES/banking.dm:56-59"
+   "id": "loan_rate_2",
+   "name": "Ставка займа, вариант 2",
+   "value": "15",
+   "unit": "% в день",
+   "meaning": "Простой процент, на выбор",
+   "code": "code/modules/roguetown/roguemachine/vaultbank.dm:412-419"
   },
   {
-   "id": "company_loan_rate",
-   "name": "Ставка займа у товарищества",
+   "id": "loan_rate_3",
+   "name": "Ставка займа, вариант 3",
+   "value": "20",
+   "unit": "% в день",
+   "meaning": "Простой процент, на выбор",
+   "code": "code/modules/roguetown/roguemachine/vaultbank.dm:412-419"
+  },
+  {
+   "id": "loan_rate_4",
+   "name": "Ставка займа, вариант 4",
    "value": "25",
-   "unit": "%",
-   "meaning": "Твёрдая",
-   "code": "code/__DEFINES/banking.dm:56-59"
+   "unit": "% в день",
+   "meaning": "Простой процент, на выбор",
+   "code": "code/modules/roguetown/roguemachine/vaultbank.dm:412-419"
   },
   {
-   "id": "burgher_loan_min",
-   "name": "Беспроцентная ссуда горожан, минимум",
+   "id": "loan_rate_5",
+   "name": "Ставка займа, вариант 5",
+   "value": "50",
+   "unit": "% в день",
+   "meaning": "Простой процент, на выбор",
+   "code": "code/modules/roguetown/roguemachine/vaultbank.dm:412-419"
+  },
+  {
+   "id": "loan_rate_church",
+   "name": "Ставка займа церкви",
+   "value": "0",
+   "unit": "% в день",
+   "meaning": "Церковь выдаёт займы без процента",
+   "code": "code/modules/roguetown/roguemachine/vaultbank.dm:660-662"
+  },
+  {
+   "id": "loan_issue_last_day",
+   "name": "Последний день выдачи личных займов",
+   "value": "5",
+   "unit": "день",
+   "meaning": "Включительно (заём товарищества только до дня 4)",
+   "code": "code/controllers/subsystem/rogue/treasury.dm:109"
+  },
+  {
+   "id": "loan_indenture_min",
+   "name": "Заёмная грамота (от)",
+   "value": "501",
+   "unit": "мон.",
+   "meaning": "Заём между кассами",
+   "code": "code/modules/roguetown/roguemachine/vaultbank.dm:611"
+  },
+  {
+   "id": "loan_indenture_max",
+   "name": "Заёмная грамота (до)",
+   "value": "2000",
+   "unit": "мон.",
+   "meaning": "Заём между кассами",
+   "code": "code/modules/roguetown/roguemachine/vaultbank.dm:611"
+  },
+  {
+   "id": "arrears_loan_min",
+   "name": "Ссуда горожан, минимум",
    "value": "1000",
    "unit": "мон.",
    "meaning": "Или вся нехватка, если больше",
-   "code": "code/modules/banking/bankruptcy.dm"
+   "code": "code/__DEFINES/banking.dm:37"
   },
   {
    "id": "bankruptcy_floor",
-   "name": "Казна при описи",
+   "name": "Остаток казны при описи",
    "value": "2500",
    "unit": "мон.",
-   "meaning": "Казна ставится на это значение",
+   "meaning": "Рабочий пол",
    "code": "code/__DEFINES/banking.dm:39"
   },
   {
@@ -343,7 +983,7 @@
    "name": "Добавка к долгу при описи",
    "value": "5000",
    "unit": "мон.",
-   "meaning": "",
+   "meaning": "Прибавляется к прежнему долгу",
    "code": "code/__DEFINES/banking.dm:40"
   },
   {
@@ -351,344 +991,104 @@
    "name": "Порог излишков при описи",
    "value": "25",
    "unit": "%",
-   "meaning": "Торговля идёт на автомат",
+   "meaning": "Автовывоз; торговля переходит на автомат",
    "code": "code/__DEFINES/banking.dm:41"
   },
   {
-   "id": "bankruptcy_recovery",
-   "name": "Казна при выходе из описи",
+   "id": "bankruptcy_reset",
+   "name": "Остаток казны при выходе из описи",
    "value": "1500",
    "unit": "мон.",
    "meaning": "Не ниже",
    "code": "code/__DEFINES/banking.dm:44"
   },
   {
-   "id": "banditry_dangerous_base",
-   "name": "Разбой, опасная земля, основа",
-   "value": "40",
-   "unit": "мон. в день",
-   "meaning": "Плюс 1 на игрока",
-   "code": "code/controllers/subsystem/rogue/economy/banditry_drain.dm:67"
+   "id": "bankruptcy_concessions",
+   "name": "Поблажки после описи",
+   "value": "3",
+   "unit": "шт.",
+   "meaning": "Обещаны ишпану, но игроку недоступны, только панель администратора",
+   "code": "code/__DEFINES/banking.dm:43"
   },
   {
-   "id": "banditry_dangerous_per_player",
-   "name": "Разбой, опасная земля, на игрока",
-   "value": "1",
-   "unit": "мон. в день на игрока",
-   "meaning": "",
-   "code": "code/controllers/subsystem/rogue/economy/banditry_drain.dm:67"
+   "id": "atc_loan_min",
+   "name": "Заём товарищества (от)",
+   "value": "500",
+   "unit": "мон.",
+   "meaning": "Основная сумма",
+   "code": "code/__DEFINES/banking.dm:56-57"
   },
   {
-   "id": "banditry_barren_base",
-   "name": "Разбой, бесплодная земля, основа",
-   "value": "80",
-   "unit": "мон. в день",
-   "meaning": "Плюс 2 на игрока",
-   "code": "code/controllers/subsystem/rogue/economy/banditry_drain.dm:67"
-  },
-  {
-   "id": "banditry_barren_per_player",
-   "name": "Разбой, бесплодная земля, на игрока",
-   "value": "2",
-   "unit": "мон. в день на игрока",
-   "meaning": "",
-   "code": "code/controllers/subsystem/rogue/economy/banditry_drain.dm:67"
-  },
-  {
-   "id": "banditry_floor",
-   "name": "Казна не ниже при разбое",
+   "id": "atc_loan_max",
+   "name": "Заём товарищества (до)",
    "value": "1500",
    "unit": "мон.",
-   "meaning": "Остаток идёт в долг",
-   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm"
+   "meaning": "Основная сумма",
+   "code": "code/__DEFINES/banking.dm:56-57"
   },
   {
-   "id": "banditry_repay",
-   "name": "Доля поступлений на разбойный долг",
-   "value": "75",
+   "id": "atc_loan_rate",
+   "name": "Процент займа товарищества",
+   "value": "25",
    "unit": "%",
-   "meaning": "",
-   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm"
+   "meaning": "От суммы, не в день; долг 125%",
+   "code": "code/__DEFINES/banking.dm:59"
   },
   {
-   "id": "autoimport_items",
-   "name": "Автоввоз, число товаров",
-   "value": "7",
-   "unit": "шт.",
-   "meaning": "Уголь, дерево, зерно, железная руда, шкуры, мех, жир",
-   "code": "code/__DEFINES/auto_import.dm:1-15"
-  },
-  {
-   "id": "autoimport_qty",
-   "name": "Автоввоз, штук за раз",
+   "id": "atc_loan_closed",
+   "name": "День закрытия займа товарищества",
    "value": "5",
-   "unit": "шт.",
-   "meaning": "Если на складе меньше 10",
-   "code": "code/__DEFINES/auto_import.dm:1-15"
-  },
-  {
-   "id": "autoimport_min_stock",
-   "name": "Автоввоз, порог запаса",
-   "value": "10",
-   "unit": "шт.",
-   "meaning": "Ввоз, если меньше",
-   "code": "code/__DEFINES/auto_import.dm:1-15"
-  },
-  {
-   "id": "autoimport_price_cap",
-   "name": "Автоввоз, потолок цены",
-   "value": "2",
-   "unit": "x основы",
-   "meaning": "",
-   "code": "code/__DEFINES/auto_import.dm:1-15"
-  },
-  {
-   "id": "autoimport_floor",
-   "name": "Автоввоз, пол казны",
-   "value": "1000",
-   "unit": "мон.",
-   "meaning": "Не ввозит ниже",
-   "code": "code/controllers/subsystem/rogue/economy/auto_import.dm"
-  },
-  {
-   "id": "autoimport_per_day",
-   "name": "Автоввоз, расход (оценка)",
-   "value": "195",
-   "unit": "мон. в день",
-   "meaning": "До этой суммы за день, 2 дня (оценка)",
-   "code": "code/controllers/subsystem/rogue/economy/auto_import.dm"
-  },
-  {
-   "id": "stock_buy_factor",
-   "name": "Склад: покупка у людей, множитель",
-   "value": "0,75 x 0,75",
-   "unit": "x цены продажи",
-   "meaning": "Меньшее из 0,75 x(0,75 x S) и 0,75 x S - 1",
-   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm"
-  },
-  {
-   "id": "stock_cap_days",
-   "name": "Предел склада, дней спроса",
-   "value": "2",
-   "unit": "дня",
-   "meaning": "Диапазон 5-40 единиц",
-   "code": "code/controllers/subsystem/rogue/treasury.dm:166-183"
-  },
-  {
-   "id": "royal_duty_base",
-   "name": "Порог королевской пошлины, основа",
-   "value": "2500",
-   "unit": "мон. оборота",
-   "meaning": "",
-   "code": "code/__DEFINES/banking.dm:27"
-  },
-  {
-   "id": "royal_duty_per_player",
-   "name": "Порог королевской пошлины, на игрока",
-   "value": "50",
-   "unit": "мон. оборота на игрока",
-   "meaning": "",
-   "code": "code/__DEFINES/banking.dm:28"
-  },
-  {
-   "id": "royal_duty_margin",
-   "name": "Королевская пошлина, наценка",
-   "value": "50",
-   "unit": "%",
-   "meaning": "На прямой ввоз под заказ",
-   "code": "code/__DEFINES/banking.dm:29"
-  },
-  {
-   "id": "land_demand_growth",
-   "name": "Рост спроса земли на игрока",
-   "value": "2,5",
-   "unit": "%",
-   "meaning": "До x3",
-   "code": "code/controllers/subsystem/rogue/economy/economy.dm:182-221"
-  },
-  {
-   "id": "land_demand_cap",
-   "name": "Предел роста спроса земель",
-   "value": "3",
-   "unit": "x",
-   "meaning": "",
-   "code": "code/controllers/subsystem/rogue/economy/economy.dm:182-221"
-  },
-  {
-   "id": "land_export_factor",
-   "name": "Вывоз: множитель",
-   "value": "0,75",
-   "unit": "x основы",
-   "meaning": "Делится на 1 + перебор",
-   "code": "code/controllers/subsystem/rogue/economy/economy.dm:468-481"
-  },
-  {
-   "id": "land_batch",
-   "name": "Предел за один щелчок",
-   "value": "50",
-   "unit": "шт.",
-   "meaning": "",
-   "code": "code/controllers/subsystem/rogue/economy/economy.dm"
-  },
-  {
-   "id": "blockade_import_mult",
-   "name": "Заслон: ввоз",
-   "value": "2",
-   "unit": "x",
-   "meaning": "",
-   "code": "code/controllers/subsystem/rogue/economy/economy.dm:458-466"
-  },
-  {
-   "id": "blockade_export_mult",
-   "name": "Заслон: вывоз",
-   "value": "0,5",
-   "unit": "x",
-   "meaning": "",
-   "code": "code/controllers/subsystem/rogue/economy/economy.dm:468-481"
-  },
-  {
-   "id": "blockade_scroll",
-   "name": "Свиток заслона, поручительство",
-   "value": "500",
-   "unit": "ед.",
-   "meaning": "",
-   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm"
-  },
-  {
-   "id": "blockade_pay",
-   "name": "Свиток заслона, плата",
-   "value": "715",
-   "unit": "мон.",
-   "meaning": "Плюс подорожное 75 или 150",
-   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm"
-  },
-  {
-   "id": "event_start",
-   "name": "Хозяйственные события при старте",
-   "value": "3",
-   "unit": "шт.",
-   "meaning": "Держится около 5",
-   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm"
-  },
-  {
-   "id": "event_days",
-   "name": "Длительность события",
-   "value": "2",
-   "unit": "дня",
-   "meaning": "",
-   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm"
-  },
-  {
-   "id": "event_shortage",
-   "name": "Нехватка, множитель цены",
-   "value": "2-3",
-   "unit": "x",
-   "meaning": "",
-   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm"
-  },
-  {
-   "id": "event_surplus",
-   "name": "Избыток, множитель цены",
-   "value": "0,5-0,7",
-   "unit": "x",
-   "meaning": "",
-   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm"
-  },
-  {
-   "id": "order_base_mult",
-   "name": "Постоянный заказ, множитель основы",
-   "value": "2,5",
-   "unit": "x",
-   "meaning": "За единицу товара",
-   "code": "code/controllers/subsystem/rogue/economy/economy.dm:483-526"
-  },
-  {
-   "id": "order_partial",
-   "name": "Частичная сдача",
-   "value": "85",
-   "unit": "%",
-   "meaning": "",
-   "code": "code/controllers/subsystem/rogue/economy/economy.dm:581-694"
-  },
-  {
-   "id": "order_petition",
-   "name": "Плата по прошению",
-   "value": "80",
-   "unit": "%",
-   "meaning": "",
-   "code": "code/modules/roguetown/roguestock/steward_petition.dm:138"
-  },
-  {
-   "id": "order_new_per_day",
-   "name": "Новых заказов в день, основа",
-   "value": "4",
-   "unit": "шт.",
-   "meaning": "Плюс 1 на 20 игроков",
-   "code": "code/controllers/subsystem/rogue/economy/economy.dm:240-283"
-  },
-  {
-   "id": "order_pool_max",
-   "name": "Заказов в пуле, максимум",
-   "value": "13",
-   "unit": "шт.",
-   "meaning": "До 3 на землю",
-   "code": "code/controllers/subsystem/rogue/economy/economy.dm:240-283"
-  },
-  {
-   "id": "order_days",
-   "name": "Срок заказа",
-   "value": "2",
-   "unit": "дня",
-   "meaning": "Срочные на 1 день, до 2",
-   "code": "code/controllers/subsystem/rogue/economy/economy.dm:240-283"
-  },
-  {
-   "id": "petition_max",
-   "name": "Прошений в день",
-   "value": "3",
-   "unit": "шт.",
-   "meaning": "Поручительство 200-400",
-   "code": "code/modules/roguetown/roguestock/steward_petition.dm"
+   "unit": "день",
+   "meaning": "Берётся в дни 0-4",
+   "code": "code/__DEFINES/banking.dm:58"
   },
   {
    "id": "pledge_start",
-   "name": "Поручительство, старт",
+   "name": "Поручительство горожан, начало",
    "value": "1000",
    "unit": "ед.",
-   "meaning": "",
-   "code": "code/__DEFINES/banking.dm:4-11"
+   "meaning": "Две ежедневные основы",
+   "code": "code/controllers/subsystem/rogue/treasury.dm:145"
   },
   {
    "id": "pledge_refill_base",
-   "name": "Поручительство, пополнение в день",
+   "name": "Пополнение поручительства, основа",
    "value": "500",
-   "unit": "ед.",
-   "meaning": "Плюс 4 на игрока, пока стоит Золотая булла",
-   "code": "code/__DEFINES/banking.dm:4-11"
+   "unit": "ед. в день",
+   "meaning": "Пока действует Золотая булла",
+   "code": "code/__DEFINES/banking.dm:4"
   },
   {
    "id": "pledge_refill_per_player",
-   "name": "Поручительство, на игрока",
+   "name": "Пополнение поручительства, на игрока",
    "value": "4",
-   "unit": "ед. на игрока",
+   "unit": "ед. в день",
    "meaning": "",
-   "code": "code/__DEFINES/banking.dm:4-11"
+   "code": "code/__DEFINES/banking.dm:5"
   },
   {
-   "id": "assembly_trade_cap",
-   "name": "Потолок торговли ратмана",
-   "value": "0-900",
-   "unit": "мон. в день",
-   "meaning": "",
-   "code": "code/controllers/subsystem/rogue/city_assembly"
+   "id": "pledge_ceiling",
+   "name": "Потолок поручительства",
+   "value": "2",
+   "unit": "пополнения",
+   "meaning": "В пополнениях; в коде после рассвета остаток держится на трёх, перед следующим рассветом на двух",
+   "code": "code/__DEFINES/banking.dm:6"
   },
   {
-   "id": "assembly_defence_cap",
-   "name": "Потолок обороны ратмана",
-   "value": "0-1000",
-   "unit": "ед.",
-   "meaning": "Поручительство",
-   "code": "code/controllers/subsystem/rogue/city_assembly"
+   "id": "pledge_guild_bonus",
+   "name": "Бонус Статута наёмников",
+   "value": "100",
+   "unit": "ед. в день",
+   "meaning": "Пока действует Статут",
+   "code": "code/__DEFINES/banking.dm:148"
+  },
+  {
+   "id": "church_reserve_floor",
+   "name": "Охранный запас церкви",
+   "value": "1000",
+   "unit": "мон.",
+   "meaning": "Нельзя снять так, чтобы остаток опустился ниже, за вычетом основной суммы выданных ссуд",
+   "code": "code/__DEFINES/banking.dm:112"
   },
   {
    "id": "church_seed",
@@ -699,481 +1099,809 @@
    "code": "code/__DEFINES/banking.dm:117-126"
   },
   {
-   "id": "merchant_seed",
-   "name": "Касса купца, старт",
+   "id": "vault_bash_floor_crown",
+   "name": "Удары по хранилищу не берут ниже: казна",
+   "value": "1500",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/modules/roguetown/roguemachine/vaultbank.dm:19"
+  },
+  {
+   "id": "vault_bash_floor_other",
+   "name": "Удары по хранилищу не берут ниже: церковь, купец, баня",
    "value": "500",
    "unit": "мон.",
    "meaning": "",
-   "code": "code/__DEFINES/banking.dm:124"
+   "code": "code/modules/roguetown/roguemachine/vaultbank.dm:646"
   },
   {
-   "id": "bathhouse_seed",
-   "name": "Касса бани, старт",
-   "value": "500",
+   "id": "vault_bash_floor_tavern",
+   "name": "Удары по хранилищу не берут ниже: трактир",
+   "value": "300",
    "unit": "мон.",
    "meaning": "",
-   "code": "code/__DEFINES/banking.dm:125"
+   "code": "code/__DEFINES/banking.dm:128"
   },
   {
-   "id": "bath_staff_pay",
-   "name": "Работникам бани из кассы",
-   "value": "50",
-   "unit": "мон. в день",
+   "id": "vault_lump_crown",
+   "name": "Разовая выплата после десяти ударов по казне",
+   "value": "200",
+   "unit": "мон.",
    "meaning": "",
-   "code": "code/__DEFINES/banking.dm:152-154"
+   "code": "code/modules/roguetown/roguemachine/vaultbank.dm:22"
   },
   {
-   "id": "inn_cut",
-   "name": "Доля трактира с договоров",
-   "value": "5",
-   "unit": "%",
-   "meaning": "",
-   "code": "code/modules/roguetown/roguemachine/questing/contract_ledger/innkeeper.dm:112-126"
-  },
-  {
-   "id": "estate_ispan",
-   "name": "Доход с поместий: ишпан",
-   "value": "275",
-   "unit": "мон. в день",
-   "meaning": "",
-   "code": "code/modules/jobs/job_types/roguetown/nobility/lord.dm:255"
-  },
-  {
-   "id": "estate_merchant",
-   "name": "Доход с поместий: купец",
+   "id": "vault_drill_goal",
+   "name": "Цель сверла кассы",
    "value": "100",
-   "unit": "мон. в день",
-   "meaning": "",
-   "code": "code/modules/jobs/job_types/roguetown/burghers/merchant.dm:16"
+   "unit": "очков",
+   "meaning": "Шкала, очков",
+   "code": "code/modules/roguetown/roguemachine/vaultbank.dm:34"
   },
   {
-   "id": "estate_consort",
-   "name": "Доход с поместий: супруг ишпана",
-   "value": "22",
-   "unit": "мон. в день",
+   "id": "vault_drill_step",
+   "name": "Шаг сверла кассы",
+   "value": "3",
+   "unit": "очка за цикл",
    "meaning": "",
-   "code": "code/__DEFINES/banking.dm:31"
+   "code": "code/modules/roguetown/roguemachine/vaultbank.dm:276"
   },
   {
-   "id": "estate_marshal",
-   "name": "Доход с поместий: капитан стражи",
+   "id": "vault_drill_take_min",
+   "name": "Съём сверла кассы (от)",
+   "value": "5",
+   "unit": "мон. за цикл",
+   "meaning": "Случайный, за цикл в 10 секунд",
+   "code": "code/modules/roguetown/roguemachine/vaultbank.dm:270"
+  },
+  {
+   "id": "vault_drill_take_max",
+   "name": "Съём сверла кассы (до)",
    "value": "20",
-   "unit": "мон. в день",
+   "unit": "мон. за цикл",
+   "meaning": "Случайный, за цикл в 10 секунд",
+   "code": "code/modules/roguetown/roguemachine/vaultbank.dm:270"
+  },
+  {
+   "id": "debt_minimum",
+   "name": "Минимальный платёж изъяна «В долгах»",
+   "value": "30",
+   "unit": "мон.",
    "meaning": "",
-   "code": "code/__DEFINES/banking.dm:31"
+   "code": "code/datums/character_flaw/_character_flaw.dm:719"
   },
   {
-   "id": "estate_steward",
-   "name": "Доход с поместий: казначей",
-   "value": "16",
-   "unit": "мон. в день",
+   "id": "debt_relative",
+   "name": "Платёж изъяна «В долгах», доля счёта",
+   "value": "0.2",
+   "unit": "доля счёта",
+   "meaning": "Выше 150",
+   "code": "code/datums/character_flaw/_character_flaw.dm:720"
+  },
+  {
+   "id": "debt_interval",
+   "name": "Период платежа изъяна «В долгах»",
+   "value": "30",
+   "unit": "минут",
    "meaning": "",
-   "code": "code/__DEFINES/banking.dm:31"
+   "code": "code/datums/character_flaw/_character_flaw.dm:721"
   },
   {
-   "id": "estate_knight",
-   "name": "Доход с поместий: рыцарь",
-   "value": "15",
-   "unit": "мон. в день",
-   "meaning": "",
-   "code": "code/__DEFINES/banking.dm:31"
+   "id": "pledge_cost_trivial",
+   "name": "Оборонный договор лёгкого вида",
+   "value": "38",
+   "unit": "залога",
+   "meaning": "Цена выдачи; награда исполнителю отдельно",
+   "code": "code/__DEFINES/banking.dm:8"
   },
   {
-   "id": "estate_total",
-   "name": "Доход с поместий, всего (оценка)",
-   "value": "450",
-   "unit": "мон. в день",
-   "meaning": "Оценка по составу",
-   "code": "code/controllers/subsystem/rogue/treasury.dm:452-480"
+   "id": "pledge_cost_standard",
+   "name": "Оборонный договор среднего вида",
+   "value": "75",
+   "unit": "залога",
+   "meaning": "Цена выдачи; награда исполнителю отдельно",
+   "code": "code/__DEFINES/banking.dm:9"
   },
   {
-   "id": "ispan_start",
-   "name": "Твёрдый начальный вклад ишпана",
+   "id": "pledge_cost_major",
+   "name": "Оборонный договор трудного вида",
+   "value": "150",
+   "unit": "залога",
+   "meaning": "Цена выдачи; награда исполнителю отдельно",
+   "code": "code/__DEFINES/banking.dm:10"
+  },
+  {
+   "id": "pledge_cost_incursion",
+   "name": "Оборонный договор вторжения",
    "value": "250",
-   "unit": "мон.",
+   "unit": "залога",
+   "meaning": "Цена выдачи; награда исполнителю отдельно",
+   "code": "code/__DEFINES/banking.dm:11"
+  },
+  {
+   "id": "assembly_quorum",
+   "name": "Кворум схода",
+   "value": "3",
+   "unit": "голосов",
+   "meaning": "По всем вопросам вместе",
+   "code": "code/__DEFINES/city_assembly.dm:19"
+  },
+  {
+   "id": "assembly_weight_newcomer",
+   "name": "Вес голоса схода: пришлые",
+   "value": "1",
+   "unit": "ед.",
+   "meaning": "Вес голоса по сословию",
+   "code": "code/__DEFINES/city_assembly.dm:8-12"
+  },
+  {
+   "id": "assembly_weight_commoner",
+   "name": "Вес голоса схода: простонародье",
+   "value": "1.5",
+   "unit": "ед.",
+   "meaning": "Вес голоса по сословию",
+   "code": "code/__DEFINES/city_assembly.dm:8-12"
+  },
+  {
+   "id": "assembly_weight_burgher",
+   "name": "Вес голоса схода: горожане и клир",
+   "value": "2",
+   "unit": "ед.",
+   "meaning": "Вес голоса по сословию",
+   "code": "code/__DEFINES/city_assembly.dm:8-12"
+  },
+  {
+   "id": "assembly_weight_notable",
+   "name": "Вес голоса схода: видные люди",
+   "value": "4",
+   "unit": "ед.",
+   "meaning": "Вес голоса по сословию",
+   "code": "code/__DEFINES/city_assembly.dm:8-12"
+  },
+  {
+   "id": "assembly_recall_pct",
+   "name": "Порог отзыва",
+   "value": "50",
+   "unit": "%",
+   "meaning": "Доля «за» при минимуме веса 4 и двух голосующих",
+   "code": "code/__DEFINES/city_assembly.dm:22"
+  },
+  {
+   "id": "assembly_censure_pct",
+   "name": "Порог порицания",
+   "value": "66",
+   "unit": "%",
    "meaning": "",
-   "code": "code/modules/jobs/job_types/roguetown/nobility/lord.dm"
+   "code": "code/__DEFINES/city_assembly.dm:23"
   },
   {
-   "id": "people_start_per_player",
-   "name": "Начальные счета и кошели (оценка)",
-   "value": "120",
-   "unit": "мон. на игрока",
-   "meaning": "Оценка: около 3000 при 25 игроках",
-   "code": "code/__DEFINES/jobs.dm:302-309"
+   "id": "assembly_veto_pct",
+   "name": "Порог вето «против»",
+   "value": "50",
+   "unit": "%",
+   "meaning": "По потолкам",
+   "code": "code/__DEFINES/city_assembly.dm:26"
   },
   {
-   "id": "guild_total",
-   "name": "Договоры цеха (оценка)",
-   "value": "400",
+   "id": "assembly_trade_cap_min",
+   "name": "Потолок торговли ратмана (от)",
+   "value": "0",
    "unit": "мон. в день",
-   "meaning": "Оценка: около 2400 за раунд",
-   "code": "code/modules/roguetown/roguemachine/questing/types/__quest.dm:295-336"
+   "meaning": "Из казны, шаг 150",
+   "code": "code/__DEFINES/city_assembly.dm:35"
   },
   {
-   "id": "quest_light",
-   "name": "Договор лёгкий",
-   "value": "40",
-   "unit": "мон.",
-   "meaning": "Около",
-   "code": "code/modules/roguetown/roguemachine/questing/types/__quest.dm:295-336"
+   "id": "assembly_trade_cap_max",
+   "name": "Потолок торговли ратмана (до)",
+   "value": "900",
+   "unit": "мон. в день",
+   "meaning": "Из казны, шаг 150",
+   "code": "code/__DEFINES/city_assembly.dm:35"
   },
   {
-   "id": "quest_clear",
-   "name": "Договор зачистки",
-   "value": "85",
-   "unit": "мон.",
-   "meaning": "Около",
-   "code": "code/modules/roguetown/roguemachine/questing/types/__quest.dm:295-336"
-  },
-  {
-   "id": "quest_raid",
-   "name": "Договор налёта",
-   "value": "155",
-   "unit": "мон.",
-   "meaning": "Около",
-   "code": "code/modules/roguetown/roguemachine/questing/types/__quest.dm:295-336"
-  },
-  {
-   "id": "quest_invasion",
-   "name": "Договор вторжения",
-   "value": "350",
-   "unit": "мон.",
-   "meaning": "Около",
-   "code": "code/modules/roguetown/roguemachine/questing/types/__quest.dm:295-336"
-  },
-  {
-   "id": "head_bounty_min",
-   "name": "Награда за голову, от",
-   "value": "125",
-   "unit": "мон.",
+   "id": "assembly_trade_step",
+   "name": "Шаг потолка торговли",
+   "value": "150",
+   "unit": "мон. в день",
    "meaning": "",
-   "code": "code/modules/roguetown/roguemachine/questing/types/kill/__quest_kill_base.dm:360-369"
+   "code": "code/__DEFINES/city_assembly.dm:35"
   },
   {
-   "id": "nav_fee",
-   "name": "Сбор купца с мытного двора",
-   "value": "15",
-   "unit": "%",
-   "meaning": "Может быть до 50%",
-   "code": "code/modules/roguetown/roguemachine/merchant/navigator.dm:372-450"
+   "id": "assembly_defense_cap_min",
+   "name": "Потолок обороны ратмана (от)",
+   "value": "0",
+   "unit": "ед. в день",
+   "meaning": "Из поручительства, шаг 250",
+   "code": "code/__DEFINES/city_assembly.dm:37"
   },
   {
-   "id": "nav_duty",
-   "name": "Пошлина мытного двора",
-   "value": "15",
-   "unit": "%",
+   "id": "assembly_defense_cap_max",
+   "name": "Потолок обороны ратмана (до)",
+   "value": "1000",
+   "unit": "ед. в день",
+   "meaning": "Из поручительства, шаг 250",
+   "code": "code/__DEFINES/city_assembly.dm:37"
+  },
+  {
+   "id": "assembly_defense_step",
+   "name": "Шаг потолка обороны",
+   "value": "250",
+   "unit": "ед. в день",
    "meaning": "",
-   "code": "code/modules/roguetown/roguemachine/merchant/navigator.dm:411-436"
+   "code": "code/__DEFINES/city_assembly.dm:37"
   },
   {
-   "id": "nav_take_home",
-   "name": "Выплата игроку (приблизительно)",
-   "value": "70",
-   "unit": "%",
-   "meaning": "От цены с насыщением и спросом",
-   "code": "code/modules/roguetown/roguemachine/merchant/navigator.dm:372-450"
-  },
-  {
-   "id": "nav_demand",
-   "name": "Спрос мытного двора",
-   "value": "0,5-1,5",
-   "unit": "x",
-   "meaning": "",
-   "code": "code/modules/roguetown/roguemachine/merchant/navigator.dm"
-  },
-  {
-   "id": "nav_noship",
-   "name": "Разряд без корабля",
-   "value": "0,5",
-   "unit": "x",
-   "meaning": "Кроме ценностей, рыбы, гончарного, резного",
-   "code": "code/__DEFINES/economy/pricing_defines.dm"
-  },
-  {
-   "id": "nav_ship_max",
-   "name": "Разряд с кораблём, максимум",
-   "value": "1,5",
-   "unit": "x",
-   "meaning": "",
-   "code": "code/__DEFINES/economy/pricing_defines.dm"
-  },
-  {
-   "id": "nav_start_range",
-   "name": "Склады разрядов при старте",
-   "value": "0,7-1,3",
-   "unit": "x",
-   "meaning": "",
-   "code": "code/__DEFINES/economy/pricing_defines.dm"
-  },
-  {
-   "id": "nav_per_player",
-   "name": "Склады разрядов, на игрока сверх 15",
-   "value": "0,5",
-   "unit": "%",
-   "meaning": "",
-   "code": "code/__DEFINES/economy/pricing_defines.dm"
-  },
-  {
-   "id": "nav_smuggler",
-   "name": "Посредник тайной перевалки",
-   "value": "50",
-   "unit": "%",
-   "meaning": "С работником бани 0%",
-   "code": "code/__DEFINES/economy/trading.dm"
-  },
-  {
-   "id": "crate_cut",
-   "name": "Доля купца с ящика на пристани",
-   "value": "25",
-   "unit": "%",
-   "meaning": "",
-   "code": "code/modules/roguetown/roguemachine/merchant/trade/fulfillment_crate.dm:396-425"
-  },
-  {
-   "id": "goldface_fee",
-   "name": "Пошлина лавки купца",
-   "value": "15",
-   "unit": "%",
-   "meaning": "",
-   "code": "code/modules/roguetown/roguemachine/merchant/_goldface.dm:199-206"
-  },
-  {
-   "id": "goldface_public_fee",
-   "name": "Надбавка товарной лавки",
-   "value": "50",
-   "unit": "%",
-   "meaning": "",
-   "code": "code/__DEFINES/economy/trading.dm"
-  },
-  {
-   "id": "ship_rolls",
-   "name": "Бросков кораблей в день",
-   "value": "8",
+   "id": "petitions_per_day",
+   "name": "Прошений в сутки",
+   "value": "3",
    "unit": "шт.",
    "meaning": "",
-   "code": "code/__DEFINES/economy/trading.dm"
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:161"
   },
   {
-   "id": "ship_dock",
-   "name": "Мест у причала",
+   "id": "petition_tax_mult",
+   "name": "Плата по прошению от обычной",
+   "value": "0.8",
+   "unit": "доля",
+   "meaning": "Доля",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:162"
+  },
+  {
+   "id": "petition_cost_min",
+   "name": "Цена прошения по разряду (от)",
+   "value": "200",
+   "unit": "ед.",
+   "meaning": "Поручительство горожан",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:172-177"
+  },
+  {
+   "id": "petition_cost_max",
+   "name": "Цена прошения по разряду (до)",
+   "value": "400",
+   "unit": "ед.",
+   "meaning": "Поручительство горожан",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:172-177"
+  },
+  {
+   "id": "directive_per_day",
+   "name": "Просьб в день",
+   "value": "5",
+   "unit": "шт.",
+   "meaning": "Бесплатные договоры обороны",
+   "code": "code/__DEFINES/banking.dm:12"
+  },
+  {
+   "id": "banditry_flat_dangerous",
+   "name": "Разбой опасной земли, основа",
+   "value": "40",
+   "unit": "мон. в день",
+   "meaning": "Плюс 1 на игрока",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:127"
+  },
+  {
+   "id": "banditry_flat_bleak",
+   "name": "Разбой безнадёжной земли, основа",
+   "value": "80",
+   "unit": "мон. в день",
+   "meaning": "Плюс 2 на игрока",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:128"
+  },
+  {
+   "id": "banditry_per_player_dangerous",
+   "name": "Разбой опасной земли, на игрока",
+   "value": "1",
+   "unit": "мон. на игрока",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:129"
+  },
+  {
+   "id": "banditry_per_player_bleak",
+   "name": "Разбой безнадёжной земли, на игрока",
+   "value": "2",
+   "unit": "мон. на игрока",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:130"
+  },
+  {
+   "id": "banditry_floor",
+   "name": "Нижний предел казны при разбое",
+   "value": "1500",
+   "unit": "мон.",
+   "meaning": "Выше сжигается, ниже в долг",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:132"
+  },
+  {
+   "id": "banditry_skim",
+   "name": "Доля притока на долг по разбою",
+   "value": "75",
+   "unit": "%",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:136"
+  },
+  {
+   "id": "hoard_min",
+   "name": "Минимальный клад для возврата",
+   "value": "200",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:282"
+  },
+  {
+   "id": "hoard_pledge",
+   "name": "Залог возврата клада",
+   "value": "200",
+   "unit": "мон.",
+   "meaning": "Со счёта возвращающего",
+   "code": "code/__DEFINES/economy/questing.dm:281"
+  },
+  {
+   "id": "banditry_start_estimate",
+   "name": "Разбой на старте при 25 игроках (оценка)",
+   "value": "260",
+   "unit": "мон. в день",
+   "meaning": "Болото 130 + Берег 65 + Горы 65; значение по умолчанию в модели казны",
+   "code": "modular_twilight_axis/code/controllers/subsystem/rogue/regional_threat/dun_world.dm:54,74,95"
+  },
+  {
+   "id": "stock_spread",
+   "name": "Спред между ценой ввоза и вывоза земли",
+   "value": "0.25",
+   "unit": "доля",
+   "meaning": "Вывозной множитель 0,75",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:77"
+  },
+  {
+   "id": "stock_limit_min",
+   "name": "Нижний предел автопредела склада",
+   "value": "5",
+   "unit": "ед.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:88"
+  },
+  {
+   "id": "stock_limit_max",
+   "name": "Верхний предел автопредела склада",
+   "value": "40",
+   "unit": "ед.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:89"
+  },
+  {
+   "id": "stock_limit_manual_max",
+   "name": "Верхний предел ручного предела",
+   "value": "9999",
+   "unit": "ед.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:90"
+  },
+  {
+   "id": "trade_max_bulk",
+   "name": "Предел единиц за одну сделку с землёй",
+   "value": "50",
+   "unit": "ед.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:79"
+  },
+  {
+   "id": "trade_escalation_slope",
+   "name": "Наклон роста цены ввоза и падения цены вывоза",
+   "value": "1",
+   "unit": "доля",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:76"
+  },
+  {
+   "id": "export_floor_mult",
+   "name": "Нижний предел цены вывоза от B (low_price)",
+   "value": "0.6",
+   "unit": "доля",
+   "meaning": "",
+   "code": "code/modules/roguetown/roguestock/trade_goods/_trade_goods.dm:31"
+  },
+  {
+   "id": "region_pop_scale",
+   "name": "Прирост дневного объёма земли на игрока",
+   "value": "0.025",
+   "unit": "доля",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:99"
+  },
+  {
+   "id": "region_pop_scale_max",
+   "name": "Предел поправки на население",
+   "value": "3",
+   "unit": "раз",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:100"
+  },
+  {
+   "id": "crown_import_elasticity",
+   "name": "Рост цены комплекта с каждым ввозом",
+   "value": "0.25",
+   "unit": "доля",
+   "meaning": "Счётчик не сбрасывается до конца раунда",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:97"
+  },
+  {
+   "id": "stock_buy_discount",
+   "name": "Множитель цены покупки складом (дважды: E и b)",
+   "value": "0.75",
+   "unit": "доля",
+   "meaning": "Множитель покупки складом, применяется дважды: E = round(0,75 B M), b = max(1; min(round(0,75 E); E − 1))",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:85"
+  },
+  {
+   "id": "stock_limit_days",
+   "name": "Дней спроса в автопределе склада",
+   "value": "2",
+   "unit": "дней",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:87"
+  },
+  {
+   "id": "autoexport_pct",
+   "name": "Доля предела, которую автовывоз оставляет на складе",
+   "value": "0.6",
+   "unit": "доля",
+   "meaning": "которую автовывоз оставляет на складе",
+   "code": "code/__DEFINES/banking.dm:42"
+  },
+  {
+   "id": "autoimport_items",
+   "name": "Автоввоз, число обязательных товаров",
+   "value": "7",
+   "unit": "шт.",
+   "meaning": "Уголь, дерево, зерно, железная руда, шкуры, мех, жир",
+   "code": "code/__DEFINES/auto_import.dm:1-15"
+  },
+  {
+   "id": "autoimport_batch",
+   "name": "Автоввоз, пакет в день на товар",
+   "value": "5",
+   "unit": "ед.",
+   "meaning": "Раз в день на рассвете",
+   "code": "code/__DEFINES/auto_import.dm:12"
+  },
+  {
+   "id": "autoimport_stock_floor",
+   "name": "Автоввоз, запас, при котором ввоз не нужен",
+   "value": "10",
+   "unit": "ед.",
+   "meaning": "при котором автоввоз не нужен",
+   "code": "code/__DEFINES/auto_import.dm:11"
+  },
+  {
+   "id": "autoimport_price_cap",
+   "name": "Автоввоз, потолок цены единицы от базовой",
+   "value": "2",
+   "unit": "раз",
+   "meaning": "",
+   "code": "code/__DEFINES/auto_import.dm:13"
+  },
+  {
+   "id": "autoimport_purse_floor",
+   "name": "Автоввоз, порог казны",
+   "value": "1000",
+   "unit": "мон.",
+   "meaning": "По умолчанию; казначей меняет от 0 до 99999",
+   "code": "code/__DEFINES/auto_import.dm:14"
+  },
+  {
+   "id": "autoimport_per_day",
+   "name": "Автоввоз, расход в день (оценка)",
+   "value": "195",
+   "unit": "мон. в день",
+   "meaning": "Оценка, зависит от запаса и цен; значение по умолчанию в модели казны (первые два дня)",
+   "code": "code/controllers/subsystem/rogue/economy/auto_import.dm"
+  },
+  {
+   "id": "blockade_import_mult",
+   "name": "Заслон: множитель цены ввоза",
+   "value": "2",
+   "unit": "раз",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:82"
+  },
+  {
+   "id": "blockade_export_mult",
+   "name": "Заслон: множитель цены вывоза",
+   "value": "0.5",
+   "unit": "раз",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:83"
+  },
+  {
+   "id": "econ_event_duration",
+   "name": "Длительность хозяйственного события",
+   "value": "2",
+   "unit": "дней",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:103"
+  },
+  {
+   "id": "econ_event_target",
+   "name": "Событий держится",
+   "value": "5",
+   "unit": "шт.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:107"
+  },
+  {
+   "id": "econ_event_roundstart",
+   "name": "Событий на старте",
+   "value": "3",
+   "unit": "шт.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:108"
+  },
+  {
+   "id": "econ_event_relief_mult",
+   "name": "Доля среднего спроса за 2 дня для досрочного конца нехватки",
+   "value": "0.5",
+   "unit": "доля",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:109"
+  },
+  {
+   "id": "econ_event_cooldown",
+   "name": "Повтор события того же вида не раньше",
+   "value": "7",
+   "unit": "дней",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:112"
+  },
+  {
+   "id": "econ_shortage_min",
+   "name": "Множитель нехватки (от)",
+   "value": "2",
+   "unit": "раз",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:114-118"
+  },
+  {
+   "id": "econ_shortage_max",
+   "name": "Множитель нехватки (до)",
+   "value": "3",
+   "unit": "раз",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:114-118"
+  },
+  {
+   "id": "econ_glut_min",
+   "name": "Множитель избытка (от)",
+   "value": "0.5",
+   "unit": "раз",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:120-124"
+  },
+  {
+   "id": "econ_glut_max",
+   "name": "Множитель избытка (до)",
+   "value": "0.7",
+   "unit": "раз",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:120-124"
+  },
+  {
+   "id": "blockade_start_min",
+   "name": "Заслонов на старте (от)",
    "value": "2",
    "unit": "шт.",
-   "meaning": "До 4",
-   "code": "code/__DEFINES/economy/trading.dm"
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:139-140"
   },
   {
-   "id": "ship_stay",
-   "name": "Стоянка корабля",
-   "value": "60",
-   "unit": "мин",
-   "meaning": "Отослать можно через 20",
-   "code": "code/__DEFINES/economy/trading.dm"
+   "id": "blockade_start_max",
+   "name": "Заслонов на старте (до)",
+   "value": "3",
+   "unit": "шт.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:139-140"
   },
   {
-   "id": "ship_buy_markup",
-   "name": "Корабль покупает оптом, наценка",
-   "value": "3,5",
-   "unit": "x",
-   "meaning": "Для основных товаров, максимум",
-   "code": "code/__DEFINES/economy/trading.dm"
+   "id": "blockade_replenish_days_min",
+   "name": "Дни, когда могут добавляться заслоны (от)",
+   "value": "2",
+   "unit": "день",
+   "meaning": "Определение; в коде новый заслон добавляется, только когда не осталось ни одного",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:151-152"
   },
   {
-   "id": "ship_sell_discount",
-   "name": "Корабль продаёт, скидка",
+   "id": "blockade_replenish_days_max",
+   "name": "Дни, когда могут добавляться заслоны (до)",
+   "value": "5",
+   "unit": "день",
+   "meaning": "Определение; в коде новый заслон добавляется, только когда не осталось ни одного",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:151-152"
+  },
+  {
+   "id": "blockade_replenish_chance",
+   "name": "Шанс нового заслона в день",
    "value": "50",
    "unit": "%",
-   "meaning": "",
-   "code": "code/__DEFINES/economy/trading.dm"
+   "meaning": "Только если не осталось ни одного заслона",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:153"
   },
   {
-   "id": "upgrade_dock",
-   "name": "Улучшение: причал",
-   "value": "1250",
-   "unit": "расположения",
-   "meaning": "",
-   "code": "code/__DEFINES/economy/trading.dm"
-  },
-  {
-   "id": "upgrade_gnome",
-   "name": "Улучшение: гномья артель",
-   "value": "2500",
-   "unit": "расположения",
-   "meaning": "",
-   "code": "code/__DEFINES/economy/trading.dm"
-  },
-  {
-   "id": "upgrade_hail",
-   "name": "Улучшение: окликатель",
-   "value": "500",
-   "unit": "расположения",
-   "meaning": "",
-   "code": "code/__DEFINES/economy/trading.dm"
-  },
-  {
-   "id": "upgrade_arsenal",
-   "name": "Улучшение: арсенал",
-   "value": "750",
-   "unit": "расположения",
-   "meaning": "",
-   "code": "code/__DEFINES/economy/trading.dm"
-  },
-  {
-   "id": "upgrade_caravan",
-   "name": "Улучшение: подземный караван",
-   "value": "500",
-   "unit": "расположения",
-   "meaning": "",
-   "code": "code/__DEFINES/economy/trading.dm"
-  },
-  {
-   "id": "upgrade_call",
-   "name": "Улучшение: вызов корабля",
-   "value": "250",
-   "unit": "расположения",
-   "meaning": "",
-   "code": "code/__DEFINES/economy/trading.dm"
-  },
-  {
-   "id": "kinship_buy",
-   "name": "Землячество, скидка на покупки",
-   "value": "10",
-   "unit": "%",
-   "meaning": "",
-   "code": "code/controllers/subsystem/rogue/merchant_trade_kinship.dm"
-  },
-  {
-   "id": "kinship_sell",
-   "name": "Землячество, надбавка на продажи",
-   "value": "10",
-   "unit": "%",
-   "meaning": "",
-   "code": "code/controllers/subsystem/rogue/merchant_trade_kinship.dm"
-  },
-  {
-   "id": "bath_rate",
-   "name": "Банный клад, доля стоимости",
-   "value": "15",
-   "unit": "%",
-   "meaning": "За каждый заход",
-   "code": "code/modules/roguetown/roguemachine/merchant/bathmaster.dm:428-497"
-  },
-  {
-   "id": "bath_period",
-   "name": "Банный клад, период",
-   "value": "6",
-   "unit": "мин",
-   "meaning": "",
-   "code": "code/modules/roguetown/roguemachine/merchant/bathmaster.dm:428-497"
-  },
-  {
-   "id": "bath_radius",
-   "name": "Банный клад, радиус от кассы",
-   "value": "5",
-   "unit": "клеток",
-   "meaning": "",
-   "code": "code/modules/roguetown/roguemachine/merchant/bathmaster.dm:428-497"
-  },
-  {
-   "id": "bath_repeat",
-   "name": "Банный клад, множитель за копию",
-   "value": "0,7",
-   "unit": "x",
-   "meaning": "Для повтора того же типа",
-   "code": "code/modules/roguetown/roguemachine/merchant/bathmaster.dm:428-497"
-  },
-  {
-   "id": "bath_church",
-   "name": "Банный клад, десятина Церкви",
-   "value": "20",
-   "unit": "%",
-   "meaning": "",
-   "code": "code/__DEFINES/banking.dm:117-126"
-  },
-  {
-   "id": "wheel_stake_min",
-   "name": "Колесо Фортуны, ставка от",
-   "value": "5",
-   "unit": "мон.",
-   "meaning": "",
-   "code": "code/modules/roguetown/roguemachine/lottery.dm:15-22"
-  },
-  {
-   "id": "wheel_stake_max",
-   "name": "Колесо Фортуны, ставка до",
-   "value": "100",
-   "unit": "мон.",
-   "meaning": "",
-   "code": "code/modules/roguetown/roguemachine/lottery.dm:15-22"
-  },
-  {
-   "id": "wheel_win_chance",
-   "name": "Колесо Фортуны, шанс выигрыша",
-   "value": "60",
-   "unit": "% + (Удача - 2)",
-   "meaning": "",
-   "code": "code/modules/roguetown/roguemachine/lottery.dm:70-110"
-  },
-  {
-   "id": "wheel_mult_avg",
-   "name": "Колесо Фортуны, средний выигрыш",
-   "value": "1,28",
-   "unit": "x ставки",
-   "meaning": "Диапазон 1,1-2",
-   "code": "code/modules/roguetown/roguemachine/lottery.dm:70-110"
-  },
-  {
-   "id": "escrow_markup",
-   "name": "Стол заказов: надбавка",
-   "value": "70",
-   "unit": "%",
-   "meaning": "Цена = материал + 70% + 5",
-   "code": "code/modules/roguetown/roguemachine/escrow.dm"
-  },
-  {
-   "id": "escrow_flat",
-   "name": "Стол заказов: фикс",
-   "value": "5",
-   "unit": "мон.",
-   "meaning": "",
-   "code": "code/modules/roguetown/roguemachine/escrow.dm"
-  },
-  {
-   "id": "scrapper_seed",
-   "name": "Приёмник лома, бюджет",
-   "value": "50",
-   "unit": "мон.",
-   "meaning": "Начало",
-   "code": "code/__DEFINES/economy/trading.dm"
-  },
-  {
-   "id": "mail_fee",
-   "name": "Почта, плата за письмо",
+   "id": "blockade_budget_base",
+   "name": "Бюджет заслонов, основа",
    "value": "1",
+   "unit": "шт.",
+   "meaning": "1 + 1 на каждые 50 игроков, не больше 2",
+   "code": "code/controllers/subsystem/rogue/economy/blockade_lifecycle.dm:98-110"
+  },
+  {
+   "id": "blockade_budget_players",
+   "name": "Бюджет заслонов, игроков на добавку",
+   "value": "50",
+   "unit": "чел.",
+   "meaning": "",
+   "code": "code/controllers/subsystem/rogue/economy/blockade_lifecycle.dm:98-110"
+  },
+  {
+   "id": "blockade_budget_max",
+   "name": "Бюджет заслонов, наибольший",
+   "value": "2",
+   "unit": "шт.",
+   "meaning": "",
+   "code": "code/controllers/subsystem/rogue/economy/blockade_lifecycle.dm:98-110"
+  },
+  {
+   "id": "blockade_scroll_reward",
+   "name": "Награда за оборону от заслона",
+   "value": "715",
    "unit": "мон.",
-   "meaning": "",
-   "code": "code/modules/roguetown/roguemachine/mail.dm:598"
+   "meaning": "Ровно 715: подорожное не назначается ни одной землёй",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:143"
   },
   {
-   "id": "round_minutes",
-   "name": "Длительность раунда",
-   "value": "165",
-   "unit": "мин",
-   "meaning": "",
-   "code": "code/_compile_options.dm:11"
+   "id": "blockade_scroll_pledge",
+   "name": "Цена свитка заслона",
+   "value": "500",
+   "unit": "ед.",
+   "meaning": "Поручительство горожан",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:142"
   },
   {
-   "id": "day_minutes",
-   "name": "Игровые сутки",
-   "value": "29",
-   "unit": "мин",
-   "meaning": "Около, множитель времени 50",
-   "code": "code/controllers/subsystem/ticker.dm:42"
+   "id": "blockade_travel_fee_coast",
+   "name": "Подорожное за свиток заслона, берег (не назначается)",
+   "value": "75",
+   "unit": "мон.",
+   "meaning": "Константа определена, но blockade_travel_fee равен 0 у всех земель",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:144"
+  },
+  {
+   "id": "blockade_travel_fee_mount",
+   "name": "Подорожное за свиток заслона, горы (не назначается)",
+   "value": "150",
+   "unit": "мон.",
+   "meaning": "Константа определена, но blockade_travel_fee равен 0 у всех земель",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:145"
+  },
+  {
+   "id": "order_per_day_base",
+   "name": "Новых заказов в день, основа",
+   "value": "4",
+   "unit": "шт.",
+   "meaning": "Плюс 0,05 на игрока, то есть 1 на 20",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:45"
+  },
+  {
+   "id": "order_per_player",
+   "name": "Новых заказов в день, на игрока",
+   "value": "0.05",
+   "unit": "шт.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:46"
+  },
+  {
+   "id": "order_pool_cap",
+   "name": "Заказов в пуле, наибольшее",
+   "value": "13",
+   "unit": "шт.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:48"
+  },
+  {
+   "id": "order_per_region",
+   "name": "Заказов на землю, наибольшее",
+   "value": "3",
+   "unit": "шт.",
+   "meaning": "Пара считается за один заказ",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:49"
+  },
+  {
+   "id": "order_urgent_max",
+   "name": "Срочных заказов, наибольшее",
+   "value": "2",
+   "unit": "шт.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:51"
+  },
+  {
+   "id": "order_base_bonus",
+   "name": "Надбавка постоянного заказа",
+   "value": "1.5",
+   "unit": "доля",
+   "meaning": "Множитель 2,5 к основной цене",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:57"
+  },
+  {
+   "id": "order_base_mult",
+   "name": "Постоянный заказ, множитель основной цены",
+   "value": "2.5",
+   "unit": "раз",
+   "meaning": "Срочный заказ платит иначе: C × max(1; M) без 2,5",
+   "code": "code/controllers/subsystem/rogue/economy/economy.dm:483-526"
+  },
+  {
+   "id": "order_scarcity_ref_pop",
+   "name": "Население, ниже которого растёт плата заказов",
+   "value": "30",
+   "unit": "игроков",
+   "meaning": "Ниже этого числа игроков плата заказов растёт",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:61"
+  },
+  {
+   "id": "order_scarcity_max",
+   "name": "Наибольшая надбавка за малое население",
+   "value": "0.4",
+   "unit": "доля",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:62"
+  },
+  {
+   "id": "order_partial_threshold",
+   "name": "Порог покрытия для частичной сдачи",
+   "value": "0.5",
+   "unit": "доля",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:67"
+  },
+  {
+   "id": "order_partial_payout",
+   "name": "Выплата при частичной сдаче",
+   "value": "0.85",
+   "unit": "доля",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:68"
+  },
+  {
+   "id": "order_days",
+   "name": "Срок постоянного заказа",
+   "value": "2",
+   "unit": "дня",
+   "meaning": "Срочные живут 1 день",
+   "code": "code/controllers/subsystem/rogue/economy/economy.dm:240-283"
+  },
+  {
+   "id": "item_price_jitter",
+   "name": "Разброс цены вещи при создании (±)",
+   "value": "0.13",
+   "unit": "доля",
+   "meaning": "Выплаты заказов и складов разброса не имеют",
+   "code": "code/modules/cargo/exports.dm:36-41"
+  },
+  {
+   "id": "pack_price_jitter",
+   "name": "Разброс цены набора в раунде (±)",
+   "value": "0.1",
+   "unit": "доля",
+   "meaning": "",
+   "code": "code/modules/cargo/packsrogue/_pack.dm:30-35"
+  },
+  {
+   "id": "pricing_default_markup",
+   "name": "Наценка для изделий без разряда",
+   "value": "1.2",
+   "unit": "раз",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/pricing_defines.dm:3"
   },
   {
    "id": "markup_weapon",
    "name": "Наценка: доспех и оружие",
-   "value": "1,5",
+   "value": "1.5",
    "unit": "x",
    "meaning": "",
    "code": "code/__DEFINES/economy/pricing_defines.dm"
@@ -1189,7 +1917,7 @@
   {
    "id": "markup_plain_clothes",
    "name": "Наценка: простая одежда",
-   "value": "2,5",
+   "value": "2.5",
    "unit": "x",
    "meaning": "",
    "code": "code/__DEFINES/economy/pricing_defines.dm"
@@ -1197,7 +1925,7 @@
   {
    "id": "markup_fine_clothes",
    "name": "Наценка: нарядная одежда",
-   "value": "3,5",
+   "value": "3.5",
    "unit": "x",
    "meaning": "",
    "code": "code/__DEFINES/economy/pricing_defines.dm"
@@ -1221,7 +1949,7 @@
   {
    "id": "markup_potion",
    "name": "Наценка: снадобья",
-   "value": "1,8",
+   "value": "1.8",
    "unit": "x",
    "meaning": "",
    "code": "code/__DEFINES/economy/pricing_defines.dm"
@@ -1229,7 +1957,7 @@
   {
    "id": "markup_food",
    "name": "Наценка: свежая еда",
-   "value": "1,5",
+   "value": "1.5",
    "unit": "x",
    "meaning": "",
    "code": "code/__DEFINES/economy/pricing_defines.dm"
@@ -1237,7 +1965,7 @@
   {
    "id": "markup_stores",
    "name": "Наценка: запасы",
-   "value": "1,7",
+   "value": "1.7",
    "unit": "x",
    "meaning": "",
    "code": "code/__DEFINES/economy/pricing_defines.dm"
@@ -1245,7 +1973,7 @@
   {
    "id": "markup_books",
    "name": "Наценка: книги и инструменты музыки",
-   "value": "1,7",
+   "value": "1.7",
    "unit": "x",
    "meaning": "",
    "code": "code/__DEFINES/economy/pricing_defines.dm"
@@ -1257,6 +1985,1486 @@
    "unit": "x",
    "meaning": "",
    "code": "code/__DEFINES/economy/pricing_defines.dm"
+  },
+  {
+   "id": "blockade_reward_per_extra",
+   "name": "Прирост награды блокады за человека",
+   "value": "0.33",
+   "unit": "доля",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:171"
+  },
+  {
+   "id": "blockade_fellowship_min",
+   "name": "Минимум отряда блокады",
+   "value": "3",
+   "unit": "чел.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:270"
+  },
+  {
+   "id": "merchant_seed",
+   "name": "Касса купца, старт",
+   "value": "500",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/banking.dm:124"
+  },
+  {
+   "id": "bath_vault_tithe",
+   "name": "Десятина церкви с банного клада",
+   "value": "0.2",
+   "unit": "доля",
+   "meaning": "При Уложении",
+   "code": "code/__DEFINES/banking.dm:118"
+  },
+  {
+   "id": "bath_brassface_tithe",
+   "name": "Десятина с цены набора Латуннолика",
+   "value": "0.1",
+   "unit": "доля",
+   "meaning": "При Уложении вместо пошлины",
+   "code": "code/__DEFINES/banking.dm:119"
+  },
+  {
+   "id": "bath_worker_withdraw",
+   "name": "Предел снятия работникам и поверенным бани",
+   "value": "50",
+   "unit": "мон. в день",
+   "meaning": "В день, на человека",
+   "code": "code/__DEFINES/banking.dm:152-154"
+  },
+  {
+   "id": "merchant_middleman_cut_unused",
+   "name": "Доля купца 25% в ящике на пристани (не используется)",
+   "value": "25",
+   "unit": "%",
+   "meaning": "TRADE_MERCHANT_MIDDLEMAN_CUT_PERCENT нигде не применяется; действует общий сбор купца",
+   "code": "code/__DEFINES/economy/trading.dm:68"
+  },
+  {
+   "id": "victualling_mod_unused",
+   "name": "Множитель цены провианта (не применяется)",
+   "value": "1.2",
+   "unit": "раз",
+   "meaning": "TRADE_VICTUALLING_PRICE_MOD не применяется; множитель 1,2 только у напитков",
+   "code": "code/__DEFINES/economy/trading.dm:122"
+  },
+  {
+   "id": "pool_jitter_min",
+   "name": "Множитель темы ёмкостей (от)",
+   "value": "0.7",
+   "unit": "раз",
+   "meaning": "Один раз в раунд",
+   "code": "code/__DEFINES/economy/pricing_defines.dm:146-147"
+  },
+  {
+   "id": "pool_jitter_max",
+   "name": "Множитель темы ёмкостей (до)",
+   "value": "1.3",
+   "unit": "раз",
+   "meaning": "Один раз в раунд",
+   "code": "code/__DEFINES/economy/pricing_defines.dm:146-147"
+  },
+  {
+   "id": "pool_pop_reference",
+   "name": "Население, с которого растут ёмкости разрядов",
+   "value": "15",
+   "unit": "игроков",
+   "meaning": "Выше этого числа игроков ёмкости растут",
+   "code": "code/__DEFINES/economy/pricing_defines.dm:149"
+  },
+  {
+   "id": "pool_pop_scale",
+   "name": "Рост ёмкости на игрока сверх 15",
+   "value": "0.005",
+   "unit": "доля",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/pricing_defines.dm:150"
+  },
+  {
+   "id": "pool_pop_scale_looted",
+   "name": "Рост ёмкости добытых ценностей на игрока",
+   "value": "0.0075",
+   "unit": "доля",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/pricing_defines.dm:155"
+  },
+  {
+   "id": "pool_passive_drain",
+   "name": "Слив ёмкости рыбы, гончарного, резного",
+   "value": "0.15",
+   "unit": "доля",
+   "meaning": "Каждые 15 минут",
+   "code": "code/__DEFINES/economy/pricing_defines.dm:160-161"
+  },
+  {
+   "id": "demand_per_ship",
+   "name": "Вклад одного корабля в ожидаемый спрос разряда",
+   "value": "0.5",
+   "unit": "доля",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/pricing_defines.dm:163"
+  },
+  {
+   "id": "demand_max_pool",
+   "name": "Наибольший ожидаемый спрос от ёмкости",
+   "value": "2",
+   "unit": "раз",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/pricing_defines.dm:164"
+  },
+  {
+   "id": "demand_payout_max",
+   "name": "Наибольший множитель спроса",
+   "value": "1.5",
+   "unit": "раз",
+   "meaning": "Мытный двор",
+   "code": "code/__DEFINES/economy/pricing_defines.dm:165"
+  },
+  {
+   "id": "demand_no_ship_floor",
+   "name": "Множитель спроса без корабля",
+   "value": "0.5",
+   "unit": "раз",
+   "meaning": "У освобождённых разрядов без корабля D = 1",
+   "code": "code/__DEFINES/economy/pricing_defines.dm:167"
+  },
+  {
+   "id": "bm_pool_fraction",
+   "name": "Ёмкость тайной перевалки от законной",
+   "value": "0.5",
+   "unit": "доля",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/pricing_defines.dm:182"
+  },
+  {
+   "id": "bm_daily_regen",
+   "name": "Суточная регенерация ёмкости тайной перевалки",
+   "value": "0.25",
+   "unit": "доля",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/pricing_defines.dm:183"
+  },
+  {
+   "id": "navigator_export_time",
+   "name": "Период приезда обоза мытного двора",
+   "value": "1",
+   "unit": "мин.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/trading.dm:94"
+  },
+  {
+   "id": "navigator_smuggler_fee",
+   "name": "Плата посредника тайной перевалки",
+   "value": "0.5",
+   "unit": "доля",
+   "meaning": "0 при работнике бани рядом",
+   "code": "code/__DEFINES/economy/trading.dm:169"
+  },
+  {
+   "id": "navigator_smuggler_range",
+   "name": "Радиус работника бани для снятия платы посредника",
+   "value": "7",
+   "unit": "клеток",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/trading.dm:170"
+  },
+  {
+   "id": "merchant_levy_default",
+   "name": "Сбор купца по умолчанию",
+   "value": "15",
+   "unit": "%",
+   "meaning": "С выплаты мытного двора и ящика на пристани",
+   "code": "code/__DEFINES/economy/trading.dm:69"
+  },
+  {
+   "id": "merchant_levy_cap",
+   "name": "Предел сбора купца",
+   "value": "50",
+   "unit": "%",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/trading.dm:70"
+  },
+  {
+   "id": "nav_take_home",
+   "name": "Выплата игроку мытного двора (оценка)",
+   "value": "70",
+   "unit": "%",
+   "meaning": "Около 70% цены с насыщением и спросом: сбор купца 15% и пошлина 15%",
+   "code": "code/modules/roguetown/roguemachine/merchant/navigator.dm:372-450"
+  },
+  {
+   "id": "ship_rolls_per_day",
+   "name": "Бросков кораблей в день",
+   "value": "8",
+   "unit": "шт.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/trading.dm:21"
+  },
+  {
+   "id": "ship_hails_per_day",
+   "name": "Окликов в день",
+   "value": "2",
+   "unit": "шт.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/trading.dm:22"
+  },
+  {
+   "id": "ship_dock_spots",
+   "name": "Мест у причала",
+   "value": "2",
+   "unit": "шт.",
+   "meaning": "Третье даёт улучшение «причал», четвёртого нет",
+   "code": "code/__DEFINES/economy/trading.dm:24"
+  },
+  {
+   "id": "ship_dock_minutes",
+   "name": "Стоянка корабля",
+   "value": "60",
+   "unit": "мин.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/trading.dm:19"
+  },
+  {
+   "id": "ship_send_grace_minutes",
+   "name": "Когда можно отослать необслуженный корабль",
+   "value": "20",
+   "unit": "мин.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/trading.dm:20"
+  },
+  {
+   "id": "ship_expected_favor",
+   "name": "Ожидаемое расположение корабля",
+   "value": "450",
+   "unit": "расположение",
+   "meaning": "Умножается на масштаб размера",
+   "code": "code/__DEFINES/economy/trading.dm:27"
+  },
+  {
+   "id": "ship_failure_penalty",
+   "name": "Штраф за недовольный корабль",
+   "value": "250",
+   "unit": "расположение",
+   "meaning": "Умножается на масштаб размера",
+   "code": "code/__DEFINES/economy/trading.dm:92"
+  },
+  {
+   "id": "favor_passive",
+   "name": "Расположение от сделок лавок и мытного двора",
+   "value": "0.125",
+   "unit": "доля",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/trading.dm:35"
+  },
+  {
+   "id": "ship_buy_markup_min",
+   "name": "Корабль покупает у города, множитель (от)",
+   "value": "1.5",
+   "unit": "раз",
+   "meaning": "Покупает корабль у города по 1,5-3,5",
+   "code": "code/modules/roguetown/roguemachine/merchant/trade/trade_ship.dm:84-96"
+  },
+  {
+   "id": "ship_buy_markup_max",
+   "name": "Корабль покупает у города, множитель (до)",
+   "value": "3.5",
+   "unit": "раз",
+   "meaning": "Основные товары",
+   "code": "code/modules/roguetown/roguemachine/merchant/trade/trade_ship.dm:84-96"
+  },
+  {
+   "id": "catalog_culture_discount",
+   "name": "Скидка культурных наборов каталога земли",
+   "value": "0.5",
+   "unit": "доля",
+   "meaning": "Только у культурных наборов; оптовые поставки идут по множителям ниже",
+   "code": "code/modules/roguetown/roguemachine/merchant/_goldface.dm:818-871"
+  },
+  {
+   "id": "ship_wholesale_mult_low",
+   "name": "Оптовая поставка корабля, множитель 1",
+   "value": "0.6",
+   "unit": "раз",
+   "meaning": "",
+   "code": "code/modules/roguetown/roguemachine/merchant/_goldface.dm:818-871"
+  },
+  {
+   "id": "ship_wholesale_mult_mid",
+   "name": "Оптовая поставка корабля, множитель 2",
+   "value": "0.7",
+   "unit": "раз",
+   "meaning": "",
+   "code": "code/modules/roguetown/roguemachine/merchant/_goldface.dm:818-871"
+  },
+  {
+   "id": "ship_wholesale_mult_high",
+   "name": "Оптовая поставка корабля, множитель 3",
+   "value": "0.85",
+   "unit": "раз",
+   "meaning": "",
+   "code": "code/modules/roguetown/roguemachine/merchant/_goldface.dm:818-871"
+  },
+  {
+   "id": "kinship_buy",
+   "name": "Землячество, цена покупки купцом",
+   "value": "0.9",
+   "unit": "раз",
+   "meaning": "Множитель, то есть скидка 10%",
+   "code": "code/__DEFINES/economy/trading.dm:41"
+  },
+  {
+   "id": "kinship_sell",
+   "name": "Землячество, плата кораблю за вывоз",
+   "value": "1.1",
+   "unit": "раз",
+   "meaning": "Множитель, то есть надбавка 10%",
+   "code": "code/__DEFINES/economy/trading.dm:42"
+  },
+  {
+   "id": "catalog_kin_buy",
+   "name": "Цена каталога земли при землячестве",
+   "value": "0.8",
+   "unit": "раз",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/trading.dm:80"
+  },
+  {
+   "id": "upgrade_pier",
+   "name": "Улучшение «причал»",
+   "value": "1250",
+   "unit": "расположение",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/trading.dm:74"
+  },
+  {
+   "id": "upgrade_gnome",
+   "name": "Улучшение «гномья артель»",
+   "value": "2500",
+   "unit": "расположение",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/trading.dm:75"
+  },
+  {
+   "id": "upgrade_hailer",
+   "name": "Улучшение «окликатель»",
+   "value": "500",
+   "unit": "расположение",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/trading.dm:76"
+  },
+  {
+   "id": "upgrade_arsenal",
+   "name": "Каталог «Графский арсенал»",
+   "value": "750",
+   "unit": "расположение",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/trading.dm:77"
+  },
+  {
+   "id": "upgrade_caravan",
+   "name": "Каталог «Оружейная горняков»",
+   "value": "500",
+   "unit": "расположение",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/trading.dm:78"
+  },
+  {
+   "id": "upgrade_send_for",
+   "name": "Вызов корабля",
+   "value": "250",
+   "unit": "расположение",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/trading.dm:79"
+  },
+  {
+   "id": "goldface_public_fee",
+   "name": "Надбавка Серебролика и товарной лавки",
+   "value": "0.5",
+   "unit": "доля",
+   "meaning": "Доля; до улучшения «артель» сгорает",
+   "code": "code/__DEFINES/economy/trading.dm:171"
+  },
+  {
+   "id": "purity_margin",
+   "name": "Надбавка Чистоты",
+   "value": "0.5",
+   "unit": "доля",
+   "meaning": "",
+   "code": "code/modules/roguetown/roguemachine/merchant/bathmaster.dm:2"
+  },
+  {
+   "id": "bath_vault_interest",
+   "name": "Банный клад, проценты за цикл",
+   "value": "0.15",
+   "unit": "доля",
+   "meaning": "Для первой вещи типа",
+   "code": "code/modules/roguetown/roguemachine/merchant/bathmaster.dm:429"
+  },
+  {
+   "id": "bath_cycle",
+   "name": "Банный клад, период",
+   "value": "6",
+   "unit": "минут",
+   "meaning": "",
+   "code": "code/modules/roguetown/roguemachine/merchant/bathmaster.dm:467"
+  },
+  {
+   "id": "bath_range",
+   "name": "Банный клад, радиус от кассы бани",
+   "value": "5",
+   "unit": "клеток",
+   "meaning": "",
+   "code": "code/modules/roguetown/roguemachine/merchant/bathmaster.dm:477"
+  },
+  {
+   "id": "bath_vault_copy_penalty",
+   "name": "Банный клад, множитель каждой следующей копии типа",
+   "value": "0.7",
+   "unit": "раз",
+   "meaning": "",
+   "code": "code/modules/roguetown/roguemachine/merchant/bathmaster.dm:428"
+  },
+  {
+   "id": "escrow_margin_pct",
+   "name": "Стол заказов, процентная наценка по умолчанию",
+   "value": "70",
+   "unit": "%",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/trading.dm:172"
+  },
+  {
+   "id": "escrow_margin_flat",
+   "name": "Стол заказов, плоская наценка",
+   "value": "5",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/trading.dm:173"
+  },
+  {
+   "id": "escrow_open_days",
+   "name": "Срок открытого заказа",
+   "value": "3",
+   "unit": "дней",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/treasury.dm:16"
+  },
+  {
+   "id": "escrow_claim_days",
+   "name": "Срок принятого заказа",
+   "value": "1",
+   "unit": "дней",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/treasury.dm:17"
+  },
+  {
+   "id": "escrow_partial_haircut",
+   "name": "Удержание при частичном расчёте",
+   "value": "20",
+   "unit": "%",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/treasury.dm:18"
+  },
+  {
+   "id": "escrow_margin_max",
+   "name": "Предел процентной наценки",
+   "value": "500",
+   "unit": "%",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/treasury.dm:19"
+  },
+  {
+   "id": "escrow_durability_floor",
+   "name": "Минимальная целостность сдаваемого изделия",
+   "value": "0.8",
+   "unit": "доля",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/treasury.dm:21"
+  },
+  {
+   "id": "scrapper_seed",
+   "name": "Стартовый бюджет приёмника лома и ветоши",
+   "value": "50",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/trading.dm:174"
+  },
+  {
+   "id": "shop_max_items",
+   "name": "Вместимость лавки игрока",
+   "value": "30",
+   "unit": "шт.",
+   "meaning": "",
+   "code": "code/modules/roguetown/roguemachine/vendor.dm:19"
+  },
+  {
+   "id": "potion_cabinet_capacity",
+   "name": "Вместимость шкафа снадобий",
+   "value": "5000",
+   "unit": "драхм",
+   "meaning": "",
+   "code": "code/modules/roguetown/roguemachine/potionseller.dm:22"
+  },
+  {
+   "id": "bathhouse_seed",
+   "name": "Касса бани, старт",
+   "value": "500",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/banking.dm:125"
+  },
+  {
+   "id": "commission_bonus_light",
+   "name": "Малая надбавка срочности",
+   "value": "1.25",
+   "unit": "раза",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:158"
+  },
+  {
+   "id": "commission_bonus_full",
+   "name": "Полная надбавка срочности",
+   "value": "1.5",
+   "unit": "раза",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/internal_trade_and_quests.dm:159"
+  },
+  {
+   "id": "towner_cost_medium",
+   "name": "Договор горожан: цена выставления среднего",
+   "value": "100",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:54"
+  },
+  {
+   "id": "towner_cost_hard",
+   "name": "Договор горожан: цена выставления трудного",
+   "value": "200",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:55"
+  },
+  {
+   "id": "towner_crown_mult",
+   "name": "Договор горожан: цена для казны, множитель",
+   "value": "2",
+   "unit": "раза",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:57"
+  },
+  {
+   "id": "towner_company_mult",
+   "name": "Договор горожан: цена для товарищества, множитель",
+   "value": "1.5",
+   "unit": "раза",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:58"
+  },
+  {
+   "id": "towner_cap_medium",
+   "name": "Договор горожан: предел награды среднего",
+   "value": "300",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:66"
+  },
+  {
+   "id": "towner_cap_hard",
+   "name": "Договор горожан: предел награды трудного",
+   "value": "500",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:67"
+  },
+  {
+   "id": "towner_flat_medium",
+   "name": "Договор горожан: добавка среднего",
+   "value": "50",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:76"
+  },
+  {
+   "id": "towner_flat_hard",
+   "name": "Договор горожан: добавка трудного",
+   "value": "100",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:77"
+  },
+  {
+   "id": "towner_max_postings",
+   "name": "Договор горожан: объявлений на человека",
+   "value": "5",
+   "unit": "объявлений",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:64"
+  },
+  {
+   "id": "quest_threat_pay_easy",
+   "name": "Награда за очко угрозы, лёгкий договор",
+   "value": "0.95",
+   "unit": "раз",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:98"
+  },
+  {
+   "id": "quest_threat_pay_medium",
+   "name": "Награда за очко угрозы, средний договор",
+   "value": "0.88",
+   "unit": "раз",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:99"
+  },
+  {
+   "id": "quest_tp_easy",
+   "name": "Бюджет Охоты",
+   "value": "35",
+   "unit": "очков угрозы",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:113"
+  },
+  {
+   "id": "quest_tp_clearout",
+   "name": "Бюджет Разгрома",
+   "value": "80",
+   "unit": "очков угрозы",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:114"
+  },
+  {
+   "id": "quest_tp_raid",
+   "name": "Бюджет Налёта",
+   "value": "150",
+   "unit": "очков угрозы",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:115"
+  },
+  {
+   "id": "quest_tp_bounty_goons",
+   "name": "Бюджет помощников награды за голову",
+   "value": "120",
+   "unit": "очков угрозы",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:118"
+  },
+  {
+   "id": "quest_tp_notorious_goons",
+   "name": "Бюджет помощников громкой награды",
+   "value": "50",
+   "unit": "очков угрозы",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:120"
+  },
+  {
+   "id": "quest_tp_recovery",
+   "name": "Бюджет возврата груза",
+   "value": "80",
+   "unit": "очков угрозы",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:121"
+  },
+  {
+   "id": "quest_tp_variance",
+   "name": "Разброс бюджета",
+   "value": "0.25",
+   "unit": "доля",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:124"
+  },
+  {
+   "id": "quest_base_flat",
+   "name": "Основа боевых договоров",
+   "value": "5",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:140"
+  },
+  {
+   "id": "quest_base_fetch",
+   "name": "Основа поиска, доставки и возврата груза",
+   "value": "15",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:141-142"
+  },
+  {
+   "id": "quest_bonus_hard",
+   "name": "Бонус трудного договора",
+   "value": "10",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:147"
+  },
+  {
+   "id": "quest_bonus_notorious",
+   "name": "Бонус громкой награды",
+   "value": "40",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:148"
+  },
+  {
+   "id": "quest_deposit_easy",
+   "name": "Залог лёгкого",
+   "value": "5",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:151"
+  },
+  {
+   "id": "quest_deposit_medium",
+   "name": "Залог среднего",
+   "value": "10",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:152"
+  },
+  {
+   "id": "quest_deposit_hard",
+   "name": "Залог трудного, громкого договора и вторжения",
+   "value": "20",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:153-155"
+  },
+  {
+   "id": "quest_max_active",
+   "name": "Лимит подписаний в окно",
+   "value": "2",
+   "unit": "договора",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:158"
+  },
+  {
+   "id": "quest_fellowship_reward_extra",
+   "name": "Прирост награды за лишнего человека",
+   "value": "0.20",
+   "unit": "доля",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:166"
+  },
+  {
+   "id": "quest_group_bonus",
+   "name": "Бонус отряда у лёгкого и среднего",
+   "value": "0.18",
+   "unit": "доля",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:167-168"
+  },
+  {
+   "id": "quest_townie_gate",
+   "name": "Запрет подписания горожанам",
+   "value": "60",
+   "unit": "минут",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:181"
+  },
+  {
+   "id": "quest_cancel_wait",
+   "name": "Ожидание отзыва взятого договора",
+   "value": "30",
+   "unit": "минут",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:197"
+  },
+  {
+   "id": "quest_refund_failure",
+   "name": "Возврат заказчику за начатое",
+   "value": "0.5",
+   "unit": "доля",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:199"
+  },
+  {
+   "id": "quest_take_cooldown",
+   "name": "Окно лимита подписаний",
+   "value": "10",
+   "unit": "минут",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:208"
+  },
+  {
+   "id": "quest_hunt_timer",
+   "name": "Время на боевой договор",
+   "value": "15",
+   "unit": "минут",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/questing.dm:213"
+  },
+  {
+   "id": "quest_reward_hunt_min",
+   "name": "Награда: Охота (от)",
+   "value": "30",
+   "unit": "мон.",
+   "meaning": "По формуле; зависит от земли и случайного разброса",
+   "code": "code/modules/roguetown/roguemachine/questing/types/__quest.dm:329-336"
+  },
+  {
+   "id": "quest_reward_hunt_max",
+   "name": "Награда: Охота (до)",
+   "value": "38",
+   "unit": "мон.",
+   "meaning": "По формуле; зависит от земли и случайного разброса",
+   "code": "code/modules/roguetown/roguemachine/questing/types/__quest.dm:329-336"
+  },
+  {
+   "id": "quest_reward_clearout_min",
+   "name": "Награда: Разгром (от)",
+   "value": "75",
+   "unit": "мон.",
+   "meaning": "По формуле; зависит от земли и случайного разброса",
+   "code": "code/modules/roguetown/roguemachine/questing/types/__quest.dm:329-336"
+  },
+  {
+   "id": "quest_reward_clearout_max",
+   "name": "Награда: Разгром (до)",
+   "value": "111",
+   "unit": "мон.",
+   "meaning": "По формуле; зависит от земли и случайного разброса",
+   "code": "code/modules/roguetown/roguemachine/questing/types/__quest.dm:329-336"
+  },
+  {
+   "id": "quest_reward_raid_min",
+   "name": "Награда: Налёт (от)",
+   "value": "165",
+   "unit": "мон.",
+   "meaning": "По формуле; зависит от земли и случайного разброса",
+   "code": "code/modules/roguetown/roguemachine/questing/types/__quest.dm:329-336"
+  },
+  {
+   "id": "quest_reward_raid_max",
+   "name": "Награда: Налёт (до)",
+   "value": "240",
+   "unit": "мон.",
+   "meaning": "По формуле; зависит от земли и случайного разброса",
+   "code": "code/modules/roguetown/roguemachine/questing/types/__quest.dm:329-336"
+  },
+  {
+   "id": "quest_reward_bounty",
+   "name": "Награда: награда за голову (предгорный лес, двое), около",
+   "value": "185",
+   "unit": "мон.",
+   "meaning": "Оценка по формуле",
+   "code": "code/modules/roguetown/roguemachine/questing/types/kill/__quest_kill_base.dm:360-364"
+  },
+  {
+   "id": "quest_incursion_on_map",
+   "name": "Вторжение на карте Dun World",
+   "value": "0",
+   "unit": "земель",
+   "meaning": "Ни одна земля карты не допускает вид; вес в пуле впустую",
+   "code": "modular_twilight_axis/code/controllers/subsystem/rogue/regional_threat/dun_world.dm:18"
+  },
+  {
+   "id": "guild_total",
+   "name": "Договоры цеха всего",
+   "value": "400",
+   "unit": "мон. в день",
+   "meaning": "Оценка; значение по умолчанию в модели казны",
+   "code": "code/modules/roguetown/roguemachine/questing/types/__quest.dm:329-336"
+  },
+  {
+   "id": "guild_cut_rate",
+   "name": "Доля гильдии трактиру с награды",
+   "value": "0.05",
+   "unit": "доля награды",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/rumor.dm:6"
+  },
+  {
+   "id": "rumor_contact_fee",
+   "name": "Плата за наводку, печатается",
+   "value": "0.25",
+   "unit": "доля награды",
+   "meaning": "Печатается новыми деньгами",
+   "code": "code/__DEFINES/economy/rumor.dm:7"
+  },
+  {
+   "id": "rumor_lucrative_mult",
+   "name": "Надбавка прибыльного слуха",
+   "value": "1.5",
+   "unit": "раз",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/rumor.dm:8"
+  },
+  {
+   "id": "rumor_threat_gate",
+   "name": "Наименьшая опасность земли для слуха",
+   "value": "0.20",
+   "unit": "доля предела",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/rumor.dm:9"
+  },
+  {
+   "id": "rumor_cost_trivial",
+   "name": "Слух лёгкого вида",
+   "value": "2",
+   "unit": "очков",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/rumor.dm:11"
+  },
+  {
+   "id": "rumor_cost_standard",
+   "name": "Слух среднего вида",
+   "value": "4",
+   "unit": "очков",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/rumor.dm:12"
+  },
+  {
+   "id": "rumor_cost_major",
+   "name": "Слух трудного вида",
+   "value": "6",
+   "unit": "очков",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/rumor.dm:13"
+  },
+  {
+   "id": "rumor_cost_incursion",
+   "name": "Слух о вторжении",
+   "value": "8",
+   "unit": "очков",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/rumor.dm:14"
+  },
+  {
+   "id": "rumor_points_start",
+   "name": "Запас слухов при старте",
+   "value": "20",
+   "unit": "очков",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/rumor.dm:1"
+  },
+  {
+   "id": "rumor_points_refill_base",
+   "name": "Приход слухов в рассвет, основа",
+   "value": "12",
+   "unit": "очков",
+   "meaning": "Плюс 0,08 очка на игрока",
+   "code": "code/__DEFINES/economy/rumor.dm:2-3"
+  },
+  {
+   "id": "rumor_points_refill_per_player",
+   "name": "Приход слухов в рассвет, на игрока",
+   "value": "0.08",
+   "unit": "очков",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/rumor.dm:2-3"
+  },
+  {
+   "id": "head_bounty_mult",
+   "name": "Множитель цены людей-врагов",
+   "value": "0.75",
+   "unit": "раз",
+   "meaning": "",
+   "code": "code/__DEFINES/head_bounties.dm:2"
+  },
+  {
+   "id": "head_highwayman",
+   "name": "Голова разбойника",
+   "value": "15",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/head_bounties.dm:7"
+  },
+  {
+   "id": "head_deserter",
+   "name": "Голова дезертира болот",
+   "value": "23",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/head_bounties.dm:10"
+  },
+  {
+   "id": "head_white_stag",
+   "name": "Голова белого оленя",
+   "value": "500",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/modules/mob/living/simple_animal/rogue/creacher/white_stag.dm:240"
+  },
+  {
+   "id": "head_quality_bad",
+   "name": "Скверная голова",
+   "value": "0.30",
+   "unit": "раз",
+   "meaning": "",
+   "code": "code/game/objects/items/rogueitems/natural/heads.dm:21"
+  },
+  {
+   "id": "head_quality_good",
+   "name": "Добротная голова",
+   "value": "0.70",
+   "unit": "раз",
+   "meaning": "",
+   "code": "code/game/objects/items/rogueitems/natural/heads.dm:25"
+  },
+  {
+   "id": "head_quality_fine",
+   "name": "Отменная голова",
+   "value": "1.15",
+   "unit": "раз",
+   "meaning": "",
+   "code": "code/game/objects/items/rogueitems/natural/heads.dm:30"
+  },
+  {
+   "id": "head_quality_rot",
+   "name": "Гнилая голова",
+   "value": "0.10",
+   "unit": "раз",
+   "meaning": "",
+   "code": "code/game/objects/items/rogueitems/natural/heads.dm:33"
+  },
+  {
+   "id": "stag_map_cost",
+   "name": "Карта белого оленя",
+   "value": "190",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/modules/cargo/packsrogue/merchant/hunting_maps.dm:9"
+  },
+  {
+   "id": "stag_map_uses",
+   "name": "Применений карты",
+   "value": "3",
+   "unit": "раза",
+   "meaning": "",
+   "code": "code/game/objects/effects/animal_hunting/animal_maps.dm:80"
+  },
+  {
+   "id": "stag_map_chance_skill0",
+   "name": "Вероятность успеха карты белого оленя, навык 0",
+   "value": "1",
+   "unit": "%",
+   "meaning": "",
+   "code": "code/game/objects/effects/animal_hunting/animal_maps.dm:79"
+  },
+  {
+   "id": "stag_map_chance_skill1",
+   "name": "Вероятность успеха карты белого оленя, навык 1",
+   "value": "1",
+   "unit": "%",
+   "meaning": "",
+   "code": "code/game/objects/effects/animal_hunting/animal_maps.dm:79"
+  },
+  {
+   "id": "stag_map_chance_skill2",
+   "name": "Вероятность успеха карты белого оленя, навык 2",
+   "value": "5",
+   "unit": "%",
+   "meaning": "",
+   "code": "code/game/objects/effects/animal_hunting/animal_maps.dm:79"
+  },
+  {
+   "id": "stag_map_chance_skill3",
+   "name": "Вероятность успеха карты белого оленя, навык 3",
+   "value": "10",
+   "unit": "%",
+   "meaning": "",
+   "code": "code/game/objects/effects/animal_hunting/animal_maps.dm:79"
+  },
+  {
+   "id": "stag_map_chance_skill4",
+   "name": "Вероятность успеха карты белого оленя, навык 4",
+   "value": "14",
+   "unit": "%",
+   "meaning": "",
+   "code": "code/game/objects/effects/animal_hunting/animal_maps.dm:79"
+  },
+  {
+   "id": "stag_map_chance_skill5",
+   "name": "Вероятность успеха карты белого оленя, навык 5",
+   "value": "18",
+   "unit": "%",
+   "meaning": "",
+   "code": "code/game/objects/effects/animal_hunting/animal_maps.dm:79"
+  },
+  {
+   "id": "stag_map_chance_skill6",
+   "name": "Вероятность успеха карты белого оленя, навык 6",
+   "value": "20",
+   "unit": "%",
+   "meaning": "",
+   "code": "code/game/objects/effects/animal_hunting/animal_maps.dm:79"
+  },
+  {
+   "id": "bounty_min",
+   "name": "Награда игрока, наименьшая",
+   "value": "100",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/modules/roguetown/roguemachine/bounty.dm:131"
+  },
+  {
+   "id": "bounty_max",
+   "name": "Награда игрока, наибольшая",
+   "value": "500",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/modules/roguetown/roguemachine/bounty.dm:134"
+  },
+  {
+   "id": "bounty_scroll_price",
+   "name": "Печать списка наград",
+   "value": "50",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/modules/roguetown/roguemachine/bounty.dm:221"
+  },
+  {
+   "id": "bounty_vagabond_min",
+   "name": "Награда «Разыскиваемого» (от)",
+   "value": "60",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/_globalvars/lists/bounty.dm:21-35"
+  },
+  {
+   "id": "bounty_vagabond_max",
+   "name": "Награда «Разыскиваемого» (до)",
+   "value": "250",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/_globalvars/lists/bounty.dm:21-35"
+  },
+  {
+   "id": "bounty_bandit_fish_min",
+   "name": "Слава «Мелкая рыбёшка» (от)",
+   "value": "300",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/_globalvars/lists/bounty.dm:61-65"
+  },
+  {
+   "id": "bounty_bandit_fish_max",
+   "name": "Слава «Мелкая рыбёшка» (до)",
+   "value": "400",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/_globalvars/lists/bounty.dm:61-65"
+  },
+  {
+   "id": "bounty_bandit_butcher_min",
+   "name": "Слава «Мясник с большой дороги» (от)",
+   "value": "400",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/_globalvars/lists/bounty.dm:67-71"
+  },
+  {
+   "id": "bounty_bandit_butcher_max",
+   "name": "Слава «Мясник с большой дороги» (до)",
+   "value": "500",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/_globalvars/lists/bounty.dm:67-71"
+  },
+  {
+   "id": "bounty_bandit_boogeyman_min",
+   "name": "Слава «Гроза округи» (от)",
+   "value": "500",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/_globalvars/lists/bounty.dm:73-77"
+  },
+  {
+   "id": "bounty_bandit_boogeyman_max",
+   "name": "Слава «Гроза округи» (до)",
+   "value": "600",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/_globalvars/lists/bounty.dm:73-77"
+  },
+  {
+   "id": "bounty_debt_min",
+   "name": "Награда за неуплату долгов (от)",
+   "value": "100",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/datums/character_flaw/_character_flaw.dm:775"
+  },
+  {
+   "id": "bounty_debt_max",
+   "name": "Награда за неуплату долгов (до)",
+   "value": "200",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/datums/character_flaw/_character_flaw.dm:775"
+  },
+  {
+   "id": "rebel_payout_ruler",
+   "name": "Выплата бунту за низложение правителя",
+   "value": "1000",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/rebel.dm:10"
+  },
+  {
+   "id": "rebel_payout_noble_min",
+   "name": "Выплата бунту за знатного (от)",
+   "value": "200",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/rebel.dm:12-13"
+  },
+  {
+   "id": "rebel_payout_noble_max",
+   "name": "Выплата бунту за знатного (до)",
+   "value": "400",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/rebel.dm:12-13"
+  },
+  {
+   "id": "rebel_payout_courtier_min",
+   "name": "Выплата бунту за придворного (от)",
+   "value": "100",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/rebel.dm:15-16"
+  },
+  {
+   "id": "rebel_payout_courtier_max",
+   "name": "Выплата бунту за придворного (до)",
+   "value": "200",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/rebel.dm:15-16"
+  },
+  {
+   "id": "rebel_claim_cost",
+   "name": "Цена вожачества",
+   "value": "200",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/rebel.dm:20"
+  },
+  {
+   "id": "region_payout_mult",
+   "name": "Множитель награды земель",
+   "value": "1.0",
+   "unit": "раз",
+   "meaning": "Не задан ни одной землёй, равен 1",
+   "code": "code/controllers/subsystem/rogue/regional_threat/threat_region.dm:14"
+  },
+  {
+   "id": "region_mult_basin",
+   "name": "Множитель бюджета угрозы: Приречные поля",
+   "value": "0.75",
+   "unit": "раз",
+   "meaning": "Увеличивает число и силу врагов, награда растёт косвенно",
+   "code": "modular_twilight_axis/code/controllers/subsystem/rogue/regional_threat/dun_world.dm:15"
+  },
+  {
+   "id": "region_mult_grove",
+   "name": "Множитель бюджета угрозы: Предгорный лес",
+   "value": "1.0",
+   "unit": "раз",
+   "meaning": "Увеличивает число и силу врагов, награда растёт косвенно",
+   "code": "modular_twilight_axis/code/controllers/subsystem/rogue/regional_threat/dun_world.dm:35"
+  },
+  {
+   "id": "region_mult_bog",
+   "name": "Множитель бюджета угрозы: Болото",
+   "value": "1.5",
+   "unit": "раз",
+   "meaning": "Увеличивает число и силу врагов, награда растёт косвенно",
+   "code": "modular_twilight_axis/code/controllers/subsystem/rogue/regional_threat/dun_world.dm:54"
+  },
+  {
+   "id": "region_mult_coast",
+   "name": "Множитель бюджета угрозы: Берег Дуная",
+   "value": "1.2",
+   "unit": "раз",
+   "meaning": "Увеличивает число и силу врагов, награда растёт косвенно",
+   "code": "modular_twilight_axis/code/controllers/subsystem/rogue/regional_threat/dun_world.dm:74"
+  },
+  {
+   "id": "region_mult_mount",
+   "name": "Множитель бюджета угрозы: Горы",
+   "value": "1.5",
+   "unit": "раз",
+   "meaning": "Увеличивает число и силу врагов, награда растёт косвенно",
+   "code": "modular_twilight_axis/code/controllers/subsystem/rogue/regional_threat/dun_world.dm:95"
+  },
+  {
+   "id": "lottery_base_prob",
+   "name": "Колесо Фортуны, базовая вероятность",
+   "value": "60",
+   "unit": "%",
+   "meaning": "",
+   "code": "code/modules/roguetown/roguemachine/lottery.dm:15-16"
+  },
+  {
+   "id": "lottery_prob_penalty",
+   "name": "Колесо Фортуны, штраф к вероятности",
+   "value": "2",
+   "unit": "%",
+   "meaning": "Вероятность выигрыша (57 + Удача) / 100",
+   "code": "code/modules/roguetown/roguemachine/lottery.dm:22"
+  },
+  {
+   "id": "wheel_stake_min",
+   "name": "Колесо Фортуны, ставка от",
+   "value": "5",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/modules/roguetown/roguemachine/lottery.dm:19-20"
+  },
+  {
+   "id": "wheel_stake_max",
+   "name": "Колесо Фортуны, ставка до",
+   "value": "100",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/modules/roguetown/roguemachine/lottery.dm:19-20"
+  },
+  {
+   "id": "wheel_mult_avg",
+   "name": "Колесо Фортуны, средний выигрыш",
+   "value": "1.28",
+   "unit": "x ставки",
+   "meaning": "Среднее умножение при выигрыше",
+   "code": "code/modules/roguetown/roguemachine/lottery.dm:90"
+  },
+  {
+   "id": "lottery_breakeven_luck",
+   "name": "Колесо Фортуны, Удача безубыточности",
+   "value": "22",
+   "unit": "Удача",
+   "meaning": "",
+   "code": "code/modules/roguetown/roguemachine/lottery.dm:75"
+  },
+  {
+   "id": "lottery_withdraw_cap",
+   "name": "Колесо Фортуны, снятие за раз",
+   "value": "20",
+   "unit": "монет",
+   "meaning": "",
+   "code": "code/modules/roguetown/roguemachine/lottery.dm:156-158"
+  },
+  {
+   "id": "zad_reserve_start",
+   "name": "Запас вороньего двора",
+   "value": "10",
+   "unit": "воронов",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/zadcote.dm:9"
+  },
+  {
+   "id": "zad_reserve_cap",
+   "name": "Потолок запаса воронов",
+   "value": "20",
+   "unit": "воронов",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/zadcote.dm:10"
+  },
+  {
+   "id": "zad_attrition",
+   "name": "Потеря ворона за вылет",
+   "value": "10",
+   "unit": "%",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/zadcote.dm:11"
+  },
+  {
+   "id": "zad_pack_merchant",
+   "name": "Партия воронов у купца",
+   "value": "50",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/zadcote.dm:33"
+  },
+  {
+   "id": "zad_pack_steward",
+   "name": "Партия воронов для казны",
+   "value": "75",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/zadcote.dm:34"
+  },
+  {
+   "id": "zad_cage",
+   "name": "Запасная клетка",
+   "value": "10",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/zadcote.dm:14"
+  },
+  {
+   "id": "zad_voyeur",
+   "name": "Чаша гаданий",
+   "value": "1",
+   "unit": "мон. за 3 минуты",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/zadcote.dm:26"
+  },
+  {
+   "id": "mail_price",
+   "name": "Платное письмо",
+   "value": "1",
+   "unit": "мон.",
+   "meaning": "",
+   "code": "code/modules/roguetown/roguemachine/mail.dm:598"
+  },
+  {
+   "id": "mail_free_cooldown",
+   "name": "Бесплатное письмо, перезарядка",
+   "value": "5",
+   "unit": "минут",
+   "meaning": "",
+   "code": "code/__DEFINES/economy/treasury.dm:10"
+  },
+  {
+   "id": "atm_drill_step",
+   "name": "Сверло окошка менялы",
+   "value": "20",
+   "unit": "мон. за 10 с",
+   "meaning": "",
+   "code": "code/modules/roguetown/roguemachine/ATM.dm:167-172"
+  },
+  {
+   "id": "atm_drill_cap",
+   "name": "Предел сверла окошка менялы",
+   "value": "200",
+   "unit": "мон.",
+   "meaning": "Затем окошко мертво до конца раунда",
+   "code": "code/modules/roguetown/roguemachine/ATM.dm:152"
+  },
+  {
+   "id": "coveter_fast",
+   "name": "Алчная корона, быстро",
+   "value": "50",
+   "unit": "мон. за цикл",
+   "meaning": "Быстрый режим",
+   "code": "code/modules/roguetown/roguemachine/ATM.dm:203"
+  },
+  {
+   "id": "coveter_slow",
+   "name": "Алчная корона, тихо",
+   "value": "10",
+   "unit": "мон. за цикл",
+   "meaning": "Тихий режим",
+   "code": "code/modules/roguetown/roguemachine/ATM.dm:201"
+  },
+  {
+   "id": "round_minutes",
+   "name": "Длительность раунда",
+   "value": "165",
+   "unit": "мин",
+   "meaning": "",
+   "code": "code/_compile_options.dm:11"
+  },
+  {
+   "id": "day_minutes",
+   "name": "Игровые сутки",
+   "value": "29",
+   "unit": "мин",
+   "meaning": "Около; множитель времени 50",
+   "code": "code/controllers/subsystem/ticker.dm:42"
   }
  ]
 }

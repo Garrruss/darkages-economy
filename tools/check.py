@@ -45,7 +45,7 @@ for f in pages:
     if "noscript" not in txt or 'href="index.html"' not in txt: err(f + ": нет noscript-ссылки на главную")
     if "составлен по коду ветки main на 15.11.2026" not in txt: err(f + ": нет строки внизу")
     if LOCAL.search(txt): err(f + ": локальный путь с буквой диска")
-    if "http://" in txt or "https://" in txt: err(f + ": есть http(s)://")
+    if "http" + "://" in txt or "https" + "://" in txt: err(f + ": есть http(s)://")
     if re.search(r'font-size\s*:\s*(1[0-5]|[0-9])px', txt): err(f + ": шрифт меньше 16px")
 
 def check_ref(src, ref):
@@ -62,7 +62,7 @@ for f, p in info.items():
 
 # навигация из site.js
 js = open(os.path.join(ROOT, "assets", "site.js"), encoding="utf-8").read()
-hrefs = re.findall(r'href:\s*"([^"]+)"', js)
+hrefs = re.findall(r'href: *"([^"]+)"', js)
 for h in hrefs:
     if not os.path.isfile(os.path.join(ROOT, h)): err("site.js: нет файла " + h)
 for f in pages:
@@ -85,7 +85,31 @@ for name in ("parameters.csv", "parameters.json"):
     t = open(os.path.join(ROOT, "data", name), encoding="utf-8-sig").read()
     if LOCAL.search(t): err(name + ": локальный путь")
 
-print("страниц: %d, параметров: %d" % (len(pages), len(j["parameters"])))
+
+# запрещённые слова
+for f in pages + ["assets/site.js", "assets/style.css", "data/parameters.csv", "data/parameters.json"]:
+    low = open(os.path.join(ROOT, f), encoding="utf-8-sig").read().lower()
+    if ("эконом" + "ист") in low: err(f + ": есть запрещённое слово")
+
+# навигация: разбор системы стоит после модели казны
+order = re.findall(r'href: *"([^"]+)"', js)
+if "analysis.html" not in order or order.index("analysis.html") != order.index("model.html") + 1:
+    err("site.js: analysis.html должна идти сразу после model.html")
+
+# параметры: значения только числа, id без повторов
+if len(set(q["id"] for q in j["parameters"])) != len(j["parameters"]): err("повтор id в параметрах")
+for q in j["parameters"]:
+    if not re.fullmatch(r"-?\d+(\.\d+)?", q["value"]): err("значение не число: %s = %r" % (q["id"], q["value"]))
+
+# словарь: якоря без повторов, термины по алфавиту
+g = open(os.path.join(ROOT, "glossary.html"), encoding="utf-8").read()
+terms = re.findall(r'<tr id="(g-[^"]+)"><td><b>(.*?)</b>', g)
+if len(set(i for i, _ in terms)) != len(terms): err("glossary.html: повтор якорей")
+def gkey(s): return s.lower().strip("«»\"( ").replace("ё", "е")
+names = [n for _, n in terms]
+if names != sorted(names, key=gkey): err("glossary.html: термины не по алфавиту")
+
+print("страниц: %d, параметров: %d, терминов: %d" % (len(pages), len(j["parameters"]), len(terms)))
 if errors:
     print("ОШИБКИ:"); [print(" -", e) for e in errors]; sys.exit(1)
 print("OK")
