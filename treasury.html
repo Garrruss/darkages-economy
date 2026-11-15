@@ -1,0 +1,203 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Казна — Экономика Dark Ages 13</title>
+<meta name="description" content="Казна сервера Dark Ages 13: кассы, кто ими распоряжается, жалованье, подати и ставки, грамоты, штрафы, займы, лестница несостоятельности, разбой, поручительство горожан, двойная запись.">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="layout">
+<div id="nav-root"></div>
+<main id="top">
+<noscript><p><a href="index.html">На главную</a></p></noscript>
+
+<h1>Казна</h1>
+<p class="lead">Казна это бюджет города. Сама она почти ничего не зарабатывает, зато каждый рассвет платит жалованье. Игрок в роли казначея должен найти доходы, иначе бюджет уйдёт в долг.</p>
+
+<div class="cards">
+<div class="card"><div class="v">460</div><div class="t">жалованье в день при полном составе</div></div>
+<div class="card"><div class="v">~2900</div><div class="t">начальная казна при 25 игроках</div></div>
+<div class="card"><div class="v">100-200</div><div class="t">сельская подмога в день</div></div>
+<div class="card"><div class="v">4-5 день</div><div class="t">когда без работы казначея казна уходит в недоимку</div></div>
+</div>
+
+<h2 id="funds">Кассы и кто распоряжается</h2>
+<div class="tw">
+<table>
+<thead><tr><th>Касса</th><th>Начало</th><th>Кто распоряжается</th></tr></thead>
+<tbody>
+<tr><td>Казна (надписи: «Казна Вольного города»)</td><td>1000 + 500-1500 + 35 на игрока</td><td>казначей, писец, ишпан, регент</td></tr>
+<tr><td>Поручительство горожан (не монеты)</td><td>1000</td><td>казначей и ратман, только на оборону и прошения</td></tr>
+<tr><td>Церковная казна</td><td>1000</td><td>настоятель</td></tr>
+<tr><td>Касса купца</td><td>500</td><td>купец, приказчик</td></tr>
+<tr><td>Касса бани</td><td>500</td><td>хозяин бани; работникам по 50 в день</td></tr>
+<tr><td>Доходы трактира</td><td>0</td><td>трактирщик</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3>Кто вправе что делать</h3>
+<ul>
+<li><b>Штрафы и ставки у счётного стола:</b> казначей, писец, ишпан, рихтарь, регент.</li>
+<li><b>Займы и снятие из казны:</b> казначей, писец, ишпан, регент. Рихтаря в этом списке нет.</li>
+<li><b>Книга договоров</b> (оборонные договоры, прошения, печать освобождения): полномочия Короны у казначея, ишпана, писца, капитана стражи. Десница, советник и принц здесь закрыты.</li>
+<li><b>Ставки податей:</b> казначей командой «Изменить налоги»; ишпан или регент у трона словами «Назначить налоги».</li>
+<li><b>Грамоты:</b> ишпан пересматривает их словами «пересмотреть грамоту».</li>
+</ul>
+<details><summary>Где в коде</summary><ul>
+<li><code>code/controllers/subsystem/rogue/treasury.dm:141</code>, <code>code/modules/roguetown/roguemachine/vaultbank.dm:408-416</code> (кассы, займы)</li>
+<li><code>code/modules/roguetown/roguemachine/steward/steward.dm:105-115</code> (кто штрафует)</li>
+<li><code>code/modules/roguetown/roguemachine/questing/contract_ledger/contract_ledger.dm:201-212</code> (власть Короны в книге)</li>
+<li><code>code/controllers/subsystem/rogue/treasury.dm:543-562</code>, <code>code/__DEFINES/banking.dm:4-11</code>, <code>:148</code> (поручительство)</li>
+<li><code>code/__DEFINES/banking.dm:117-126</code>, <code>:152-154</code> (церковь, купец, баня)</li>
+<li><code>modular_zz_darkages/code/modules/world/world_machines.dm:161</code> (голос замка слышит фразы о налогах)</li>
+</ul></details>
+
+<h2 id="payroll">Жалованье</h2>
+<p>Платится из казны один раз в начале раунда и затем каждый рассвет. Таблица ниже взята для карты города с учётом полов, которые устанавливают грамоты, и с числом мест, открытых на этой карте.</p>
+<div class="tw">
+<table>
+<thead><tr><th>Должность</th><th class="n">По таблице</th><th class="n">Пол грамоты</th><th class="n">Платится</th><th class="n">Мест</th><th class="n">В день</th></tr></thead>
+<tbody>
+<tr><td>Капитан стражи</td><td class="n">60</td><td class="n">60</td><td class="n">60</td><td class="n">1</td><td class="n">60</td></tr>
+<tr><td>Рыцарь</td><td class="n">40</td><td class="n">40</td><td class="n">40</td><td class="n">1</td><td class="n">40</td></tr>
+<tr><td>Латник</td><td class="n">30</td><td class="n">20</td><td class="n">30</td><td class="n">3</td><td class="n">90</td></tr>
+<tr><td>Лесничий</td><td class="n">20</td><td class="n">20</td><td class="n">20</td><td class="n">2</td><td class="n">40</td></tr>
+<tr><td>Рыцарский слуга</td><td class="n">10</td><td class="n">10</td><td class="n">10</td><td class="n">1</td><td class="n">10</td></tr>
+<tr><td>Слуга</td><td class="n">20</td><td class="n">нет</td><td class="n">20</td><td class="n">3</td><td class="n">60</td></tr>
+<tr><td>Лекарь</td><td class="n">20</td><td class="n">80</td><td class="n">80</td><td class="n">1</td><td class="n">80</td></tr>
+<tr><td>Травник</td><td class="n">10</td><td class="n">40</td><td class="n">40</td><td class="n">2</td><td class="n">80</td></tr>
+<tr><td><b>Итого</b></td><td></td><td></td><td></td><td class="n">14</td><td class="n"><b>460</b></td></tr>
+</tbody>
+</table>
+</div>
+<ul>
+<li>Шесть других строк таблицы (сержант, ветеран, сенешаль, придворный маг, архивариус, ученик мага) относятся к закрытым должностям и не платятся.</li>
+<li>Казначей, писец, ишпан и купец жалованья не получают: у них доход с поместий и начальный счёт.</li>
+<li>Лекарь получает больше капитана стражи из-за пола, который задаёт грамота. Это выглядит странно, см. <a href="issues.html#i-physician">неясное</a>.</li>
+<li>Без счётного стола на карте жалованье не платится вовсе.</li>
+</ul>
+<p>Аналогия: фонд оплаты труда бюджетной сферы. Он почти постоянен и не зависит от доходов, поэтому сжатие поступлений быстро превращается в кассовый разрыв.</p>
+<details><summary>Где в коде</summary><ul>
+<li><code>code/controllers/subsystem/rogue/treasury.dm:185-192</code>, <code>:482-529</code> (выплата), <code>code/__HELPERS/time.dm:150-161</code></li>
+<li><code>code/modules/roguetown/roguemachine/steward/steward.dm:76-103</code> (таблица и полы грамот)</li>
+<li><code>modular_zz_darkages/code/modules/world/world_jobs.dm:3-14</code> (места на карте города), <code>:15-62</code> (закрытые должности)</li>
+<li><code>code/modules/politics/decrees/covenant_of_noc_and_pestra.dm:17-22</code> (пол лекаря и травника)</li>
+<li><code>code/controllers/subsystem/rogue/treasury.dm:485</code> (нет стола, нет выплат)</li>
+</ul></details>
+
+<h2 id="taxes">Подати, пошлины и сборы</h2>
+<div class="tw">
+<table>
+<thead><tr><th>Сбор</th><th class="n">По умолчанию</th><th>С чего</th></tr></thead>
+<tbody>
+<tr><td>Сбор с договоров</td><td class="n">20%</td><td>награда по книге договоров</td></tr>
+<tr><td>Сбор с голов</td><td class="n">15%</td><td>приёмка голов</td></tr>
+<tr><td>Ввозная пошлина</td><td class="n">15%</td><td>покупки у купца, товарной лавки, банной лавки</td></tr>
+<tr><td>Вывозная пошлина</td><td class="n">15%</td><td>мытный двор, ящик на пристани</td></tr>
+<tr><td>Возвращённая добыча</td><td class="n">50%</td><td>захоронки разбойников</td></tr>
+<tr><td>Поземельный</td><td class="n">15%</td><td>доход поместий знати</td></tr>
+</tbody>
+</table>
+</div>
+<p>Потолок большинства ставок 75%. Ставки меняет казначей. Вклады у менялы не облагаются. Купец может тайно отключить пошлину на своих лавках и дворах; машина ведёт счёт утаённому.</p>
+<details><summary>Где в коде</summary><ul>
+<li><code>code/controllers/subsystem/rogue/treasury.dm:25-33</code> (ставки по умолчанию)</li>
+<li><code>code/__DEFINES/banking.dm:22</code> (потолок 75%)</li>
+<li><code>code/modules/roguetown/roguemachine/merchant/_goldface.dm:735-746</code>, <code>navigator.dm:438-440</code> (утаённая пошлина)</li>
+</ul></details>
+
+<h3 id="poll-tax">Подушная подать</h3>
+<p>Сбор до 100 монет с головы, два раза за раунд, не раньше второго дня, по объявлению. Платят те, у кого есть счёт. Неплатящему начисляется недоимка, и взыскивается она при первой же выплате. Когда действует Великая хартия вольности, подушной подати нет (по умолчанию хартия выключена). По руководству написано «не более двух сборов в неделю», в коде два за раунд; при раунде в 6 суток это одно и то же.</p>
+<p>Аналогия: подушный налог. Простота сбора платится тем, что он регрессивен: бродяга с нулевым счётом платит так же, как ишпан, или не платит вовсе.</p>
+<details><summary>Где в коде</summary><ul>
+<li><code>code/controllers/subsystem/rogue/treasury_poll_levy.dm</code> (подать)</li>
+<li><code>code/__DEFINES/banking.dm:140-146</code> (потолок 100 и число сборов)</li>
+<li><code>code/modules/politics/decrees/magna_carta.dm</code> (хартия)</li>
+</ul></details>
+
+<h3 id="fines">Штрафы</h3>
+<p>Штраф до 100 монет и до 75% счёта человека, не чаще раза в день на человека. Под Золотой буллой штраф не больше 50 и 25% счёта. Налагают казначей, писец, ишпан, рихтарь у счётного стола. Знать при действии Великого Декрета не штрафуется.</p>
+<details><summary>Где в коде</summary><ul>
+<li><code>code/controllers/subsystem/rogue/treasury.dm:388-420</code>, <code>code/modules/roguetown/roguemachine/steward/steward.dm:199-235</code></li>
+</ul></details>
+
+<h2 id="decrees">Грамоты</h2>
+<p>Все действуют с начала раунда, кроме Великой хартии. Это набор правовых режимов, меняющих налоги и полы жалованья.</p>
+<div class="tw">
+<table>
+<thead><tr><th>Грамота в игре</th><th>Что делает</th></tr></thead>
+<tbody>
+<tr><td>Великий Декрет Венгрии</td><td>знать не платит прямых сборов и не штрафуется</td></tr>
+<tr><td>Конкордат с Церковью</td><td>клир и до 20 благодетелей не платят; 5% пошлин идёт как десятина в церковную казну</td></tr>
+<tr><td>Золотая булла Кирайфёльда</td><td>горожане платят за раз не больше 25% счёта, штраф до 50; пока стоит, пополняется поручительство</td></tr>
+<tr><td>Завет святых покровителей лекарей</td><td>учёные платят подать не больше 50; пол жалованья лекарю 80, травнику 40</td></tr>
+<tr><td>Статут Гильдии наёмников</td><td>наёмники платят подать не больше 50; +100 к поручительству в день</td></tr>
+<tr><td>Контракт защитников Венгрии</td><td>полы жалованья гарнизона</td></tr>
+<tr><td>Валлонские соглашения</td><td>освобождают инквизицию, которая закрыта, почти без адресатов</td></tr>
+<tr><td>Великая хартия вольности</td><td>выключена; когда действует, подушной подати нет</td></tr>
+</tbody>
+</table>
+</div>
+<details><summary>Где в коде</summary><ul>
+<li><code>code/modules/politics/decree.dm:8</code> (общий список)</li>
+<li><code>code/modules/politics/decrees/great_writ_of_azuria.dm</code>, <code>zenitstadt_concordat.dm</code>, <code>golden_bull_of_kingsfield.dm</code>, <code>covenant_of_noc_and_pestra.dm:3-22</code>, <code>guild_charter_of_arms.dm</code>, <code>indenture_of_war.dm:9-16</code>, <code>otavan_accords.dm</code>, <code>magna_carta.dm:6</code></li>
+<li><code>code/__DEFINES/decrees.dm:16</code></li>
+</ul></details>
+
+<h2 id="loans">Займы</h2>
+<ul>
+<li><b>Личные займы из касс</b> (казны, церкви, бани и других): 50-500 монет, срок 1-3 дня, ставка 10, 15, 20, 25 или 50% в день, не позже дня 5. Просрочка делает должником; при заёмной грамоте имущество взыскивается.</li>
+<li><b>Заём казны у купеческого товарищества:</b> 500-1500 монет, твёрдая ставка 25%, до дня 5, один заём за раз.</li>
+<li><b>Ссуда горожан</b> при первой нехватке на жалованье: беспроцентная, см. ниже.</li>
+</ul>
+<details><summary>Где в коде</summary><ul>
+<li><code>code/modules/roguetown/roguemachine/vaultbank.dm:535-560</code>, <code>code/modules/banking/loan.dm:46-55</code>, <code>:171-206</code> (личные займы)</li>
+<li><code>code/__DEFINES/banking.dm:56-59</code>, <code>code/modules/banking/bankruptcy.dm:301-317</code> (заём товарищества)</li>
+</ul></details>
+
+<h2 id="ladder">Лестница несостоятельности</h2>
+<p>Что происходит, когда в казне не хватает денег на жалованье в рассветный расчёт.</p>
+<ol class="steps">
+<li><b>Нормально.</b> Казны хватает, жалованье платится.</li>
+<li><b>Недоимка (первая нехватка).</b> Горожане дают беспроцентную ссуду на 1000 или на всю нехватку (что больше). Жалованье платится, долг записывается. Пока долг не погашен, поступления идут на его выплату.</li>
+<li><b>Заём у товарищества (по решению казначея).</b> 500-1500 монет под 25% до дня 5. Нужен, чтобы не попасть на следующую ступень.</li>
+<li><b>Опись (вторая нехватка подряд или первая при непогашенном займе).</b> Казна ставится в 2500, долг растёт на 5000, жалованье и все грамоты, кроме буллы, приостановлены. Торговля переходит на автомат с порогом излишков 25%.</li>
+<li><b>Выход.</b> Когда долг равен нулю, опись снимается, казна не ниже 1500.</li>
+</ol>
+<p>Аналогия: техническая задолженность и реструктуризация. Первая ступень это кассовый разрыв, закрытый беспроцентным внутренним займом, вторая это введение внешнего управления с сокращением расходов. Заметно, что опись не списывает долг, а создаёт новый: 5000 «штрафных» поверх прежней суммы.</p>
+<details><summary>Где в коде</summary><ul>
+<li><code>code/modules/banking/bankruptcy.dm</code> (ступени и снятие описи)</li>
+<li><code>code/__DEFINES/banking.dm:34-46</code> (пороги: пол 2500, долг 5000, автовывоз 25%, возврат 1500)</li>
+</ul></details>
+
+<h2 id="banditry">Разбой</h2>
+<p>На землях, где нет безопасности, ежедневно теряется часть казны: на опасной земле 40 монет плюс 1 на игрока в день, на бесплодной 80 плюс 2 на игрока. Казна не уходит от разбоя ниже 1500, остаток идёт в «разбойный долг», на погашение которого уходит 75% новых поступлений. Закрывается оборонными договорами и выкупом заслонов.</p>
+<details><summary>Где в коде</summary><ul>
+<li><code>code/controllers/subsystem/rogue/economy/banditry_drain.dm:67</code></li>
+<li><code>code/__DEFINES/economy/internal_trade_and_quests.dm</code> (константы BANDITRY)</li>
+</ul></details>
+
+<h2 id="pledge">Поручительство горожан, ратман и собрание</h2>
+<p>Поручительство это второй, нематериальный «бюджет»: доверие горожан, которое нельзя потратить на жалованье. Его можно тратить только на оборону (оборонные договоры, свитки заслона) и прошения. Начальный запас 1000. Каждый рассвет, пока стоит Золотая булла, пополняется на 500 плюс 4 на игрока (потолок два дневных пополнения), плюс 100 от Статута наёмников.</p>
+<p>Ратман избирается городским собранием каждый рассвет и задаёт два потолка: торговли (0-900 монет в день из казны) и обороны (0-1000 поручительства). Это делегирование расходных полномочий выборному лицу.</p>
+<details><summary>Где в коде</summary><ul>
+<li><code>code/controllers/subsystem/rogue/treasury.dm:543-562</code> (поручительство)</li>
+<li><code>code/controllers/subsystem/rogue/city_assembly</code> (собрание и ратман)</li>
+</ul></details>
+
+<h2 id="ledger">Двойная запись</h2>
+<p>Каждое движение денег пишется в книгу казны дважды, как дебет и кредит. Есть пробный баланс, отчёт о доходах и расходах, балансовая ведомость и сверка. На механику денег это не влияет, только на отчёты казначею. Экономисту это знакомо: бухгалтерия с планом счетов. Для 1242 года это анахронизм, но игре не мешает.</p>
+<details><summary>Где в коде</summary><ul>
+<li><code>code/modules/banking/ledger.dm</code>, <code>code/modules/banking/ledger_reports.dm</code></li>
+<li><code>code/__DEFINES/economy/ledger.dm</code></li>
+</ul></details>
+
+<p class="foot">Справочник составлен по коду ветки main на 15.11.2026, в игре не проверялся, оценки помечены.</p>
+</main>
+</div>
+<script src="assets/site.js"></script>
+</body>
+</html>
