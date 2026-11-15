@@ -1,6 +1,7 @@
 /* Единый список страниц. Новая страница вики добавляется одной строкой. */
 var SITE_PAGES = [
   {href: "index.html",    title: "Главная"},
+  {href: "world.html",    title: "Как устроен город"},
   {href: "glossary.html", title: "Словарь терминов"},
   {href: "money.html",    title: "Деньги и потоки"},
   {href: "treasury.html", title: "Казна"},
